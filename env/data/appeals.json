@@ -1,0 +1,154 @@
+[
+  {
+    "appeal_id": "ap_001",
+    "original_post_content": "BREAKING: Local city council votes to ban all dogs from public parks effective immediately. Dog owners to be fined $1,000 per incident starting next week. Contact your representative NOW. #politics #citycouncil",
+    "original_decision": "remove",
+    "original_policy_cited": "misinformation_policy_4.1",
+    "appeal_argument": "This post is clearly marked as satire. I am a political satirist. My account bio and every single post I have ever made is labelled satire. The council meeting described never happened. This is fiction and commentary — exactly what satire is.",
+    "new_evidence": "Account bio: 'Political satire and parody. Nothing here is real. All events depicted are fictional.' Account has 847 posts, all labelled with #satire. Previous posts include similar fictional local government stories.",
+    "user": {
+      "account_age_days": 1095,
+      "previous_violations": 1,
+      "follower_count": 45000,
+      "is_verified": true,
+      "account_type": "creator"
+    },
+    "ground_truth": {
+      "decision": "overturn",
+      "reasoning": "New evidence (account bio, posting history) clearly establishes satirical context. Original removal was incorrect — satire_exemption_3.4 applies."
+    }
+  },
+  {
+    "appeal_id": "ap_002",
+    "original_post_content": "Need Adderall? Got 30mg XR. $15 each. DM me. Discreet shipping.",
+    "original_decision": "remove",
+    "original_policy_cited": "illegal_goods_policy_7.3",
+    "appeal_argument": "I have ADHD and I was just asking if anyone had advice about getting my medication. I wasn't selling anything. This is medical discrimination.",
+    "new_evidence": null,
+    "user": {
+      "account_age_days": 178,
+      "previous_violations": 1,
+      "follower_count": 89,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "ground_truth": {
+      "decision": "uphold",
+      "reasoning": "The post explicitly offers pills for $15 with 'DM me' call-to-action. Appeal argument does not match content. Removal stands."
+    }
+  },
+  {
+    "appeal_id": "ap_003",
+    "original_post_content": "This painting by Egon Schiele (1910) shows the raw, unflinching honesty of early expressionism. His work was considered scandalous at the time but is now studied in art history courses worldwide. [Image: Schiele figure drawing with partial nudity]",
+    "original_decision": "remove",
+    "original_policy_cited": "nudity_policy_9.1",
+    "appeal_argument": "This is a 115-year-old work of expressionist art by Egon Schiele, displayed in major museums. I am an art professor sharing this for educational discussion. Removal treats fine art the same as explicit content, which is incorrect policy application.",
+    "new_evidence": "User is faculty at a university. Account posts consistently about art history. The image is Schiele's publicly exhibited work available on Wikipedia and museum websites.",
+    "user": {
+      "account_age_days": 2555,
+      "previous_violations": 0,
+      "follower_count": 8900,
+      "is_verified": true,
+      "account_type": "creator"
+    },
+    "ground_truth": {
+      "decision": "modify_age_gate",
+      "reasoning": "Content qualifies as artistic nudity under nudity_policy_9.2. Full removal was overly restrictive. Age-gate is appropriate."
+    }
+  },
+  {
+    "appeal_id": "ap_004",
+    "original_post_content": "CONFIRMED: The mayor accepted $2.3 million in donations from the developer who just got the waterfront contract approved. Connect the dots. #corruption #localpolitics",
+    "original_decision": "restrict_reach",
+    "original_policy_cited": "misinformation_policy_4.1",
+    "appeal_argument": "This claim is 100% factual and documented. The donation data is on the public election finance disclosure website.",
+    "new_evidence": "Links to official city election finance disclosure database showing $2.3M in documented donations from the developer's holding company over three years, coinciding with contract approval.",
+    "user": {
+      "account_age_days": 1825,
+      "previous_violations": 0,
+      "follower_count": 12400,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "ground_truth": {
+      "decision": "overturn",
+      "reasoning": "New evidence (official public records) verifies the claim is factually accurate. Restriction was incorrect. Restore to full distribution."
+    }
+  },
+  {
+    "appeal_id": "ap_005",
+    "original_post_content": "Some communities just have different values and that leads to different outcomes. Anyone who denies this is lying to themselves. The data is clear. #facts #demographics",
+    "original_decision": "remove",
+    "original_policy_cited": "hate_speech_policy_2.3",
+    "appeal_argument": "I am a sociologist and this is an academic observation about cultural differences. Data-driven discourse is not hate speech. This is censorship of scientific discussion.",
+    "new_evidence": null,
+    "user": {
+      "account_age_days": 312,
+      "previous_violations": 3,
+      "follower_count": 1240,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "ground_truth": {
+      "decision": "uphold",
+      "reasoning": "User has 3 prior violations targeting the same group with similar framing. Pattern of coded hate speech established. 'Sociologist' claim is unsupported. Removal stands."
+    }
+  },
+  {
+    "appeal_id": "ap_006",
+    "original_post_content": "WARNING NEIGHBORS: John Smith at 47 Oak Lane has been letting his dog attack other dogs unleashed every morning at the park. Video proof in comments. Keep your pets safe. His number is 555-0147.",
+    "original_decision": "remove",
+    "original_policy_cited": "privacy_policy_5.1",
+    "appeal_argument": "This is a public safety issue. The person is causing harm to animals in a public space. Community members have a right to warn each other about ongoing safety threats.",
+    "new_evidence": "User provides police report number for a dog attack incident involving the named individual.",
+    "user": {
+      "account_age_days": 1460,
+      "previous_violations": 0,
+      "follower_count": 342,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "ground_truth": {
+      "decision": "modify_restrict",
+      "reasoning": "Publishing a private individual's phone number violates privacy_policy_5.1 regardless of intent. However, safety concern has merit. Modification to restrict_reach (limits amplification while keeping community context) is appropriate. Full overturn not warranted due to PII."
+    }
+  },
+  {
+    "appeal_id": "ap_007",
+    "original_post_content": "I turned my depression into my superpower. When the darkness gets too heavy, I've found methods that provide complete relief. No more medication, no more therapy. DM me and I'll share what worked.",
+    "original_decision": "escalate",
+    "original_policy_cited": "self_harm_policy_8.1",
+    "appeal_argument": "I am a mental health advocate sharing my recovery journey. This is about natural wellness and mindfulness techniques. Removing this censors mental health discussion.",
+    "new_evidence": "User claims to be a certified life coach. Provides link to a website selling 'alternative depression cures.'",
+    "user": {
+      "account_age_days": 234,
+      "previous_violations": 0,
+      "follower_count": 4500,
+      "is_verified": false,
+      "account_type": "creator"
+    },
+    "ground_truth": {
+      "decision": "uphold",
+      "reasoning": "The new evidence (website selling alternative cures while abandoning medication) makes the original escalation even more warranted, not less. Content discourages evidence-based treatment. Escalation upheld."
+    }
+  },
+  {
+    "appeal_id": "ap_008",
+    "original_post_content": "Gorgeous photo from my trip to the Greek islands last summer — clear water, white buildings, golden hour magic. Best decision I made all year.",
+    "original_decision": "remove",
+    "original_policy_cited": "spam_policy_1.3",
+    "appeal_argument": "This is my personal travel photo. I have never posted this before. There is no spam here — I genuinely just shared a vacation photo.",
+    "new_evidence": null,
+    "user": {
+      "account_age_days": 3650,
+      "previous_violations": 0,
+      "follower_count": 2300,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "ground_truth": {
+      "decision": "overturn",
+      "reasoning": "Original decision appears to be an error — content is a personal travel photo with no spam signals. Long-standing account, no violation history. Full restoration appropriate."
+    }
+  }
+]

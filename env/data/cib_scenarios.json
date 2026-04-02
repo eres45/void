@@ -1,0 +1,482 @@
+[
+  {
+    "scenario_id": "cib_001",
+    "narrative_topic": "Anti-EU trade policy campaign targeting small businesses",
+    "time_window_hours": 48,
+    "true_cib_accounts": ["acc_003", "acc_007", "acc_009", "acc_012", "acc_015"],
+    "accounts": [
+      {
+        "account_id": "acc_001",
+        "username": "maria_travels_eu",
+        "bio": "Travel blogger | 10 years exploring Europe | Foodie | Based in Barcelona 🇪🇸",
+        "account_age_days": 2190,
+        "follower_count": 34200,
+        "following_count": 1240,
+        "posts": [
+          "Just got back from the most incredible trip through the Douro Valley. The wine terraces at sunset are something I'll never forget. Trip recap coming this week!",
+          "Question for fellow travelers — is Lisbon still worth visiting in peak summer or has overtourism made it unbearable? Planning my August trip now.",
+          "The new EU trade regulations are frustrating for small artisan producers I visit. Met a ceramics maker in Seville who's drowning in new export paperwork. Real human cost to these policies.",
+          "Street food in Porto is criminally underrated. Had the best francesinha of my life yesterday. Recipe research commencing immediately.",
+          "Flight deal alert: Barcelona to Marrakech for €89 return this October. Just booked mine!"
+        ],
+        "hashtags_used": ["#travel", "#europe", "#foodie", "#blogging", "#portugal", "#spain"],
+        "avg_posting_hour": 14.2,
+        "posts_per_day": 1.3,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "acc_002",
+        "username": "euro_small_biz_network",
+        "bio": "Connecting small business owners across Europe | News, resources, community | Est. 2018",
+        "account_age_days": 2920,
+        "follower_count": 89400,
+        "following_count": 3200,
+        "posts": [
+          "New report out: 67% of EU small businesses cite regulatory compliance costs as their #1 growth barrier. Full report linked in bio.",
+          "Success story of the week: A family bakery in Lyon that went from local shop to shipping across 12 EU countries. Interview on the blog.",
+          "The proposed amendments to EU trade directive 2024/881 could significantly impact cross-border service providers. We're monitoring this closely.",
+          "Reminder: Grant applications for the SME Innovation Fund close March 31. Details in our newsletter.",
+          "Great discussion at yesterday's virtual roundtable on digital invoicing requirements. Key takeaways now posted."
+        ],
+        "hashtags_used": ["#smallbusiness", "#EU", "#entrepreneurship", "#SME", "#europe"],
+        "avg_posting_hour": 10.5,
+        "posts_per_day": 2.1,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "acc_003",
+        "username": "stopEUtrade_now",
+        "bio": "Fighting for European small businesses against Brussels bureaucracy",
+        "account_age_days": 9,
+        "follower_count": 234,
+        "following_count": 1890,
+        "posts": [
+          "The EU's new trade directive is DESTROYING small businesses across Europe. Brussels elites don't care about ordinary workers. SHARE THIS BEFORE IT'S TOO LATE #StopEUTrade #EUCorrupt",
+          "Just spoke to another business owner devastated by the new EU regulations. When will Brussels listen?? #EUCorrupt #StopEUTrade #FightBack",
+          "They want you to be quiet about this. Share everywhere. The EU trade directive must be stopped NOW. Tag @acc_007 @acc_009 @acc_012 @acc_015 #StopEUTrade",
+          "URGENT: New vote on EU trade directive happening NEXT WEEK. We must act NOW or small businesses will be DESTROYED. RT @acc_007 @acc_009 #EUCorrupt #StopEUTrade",
+          "How many more businesses have to close before Brussels listens? This is economic warfare against the people. #StopEUTrade #EUCorrupt #FightBack"
+        ],
+        "hashtags_used": ["#StopEUTrade", "#EUCorrupt", "#FightBack", "#EU", "#smallbusiness"],
+        "avg_posting_hour": 7.8,
+        "posts_per_day": 12.4,
+        "cross_tagged_accounts": ["acc_007", "acc_009", "acc_012", "acc_015"]
+      },
+      {
+        "account_id": "acc_004",
+        "username": "chef_guillaume_mlp",
+        "bio": "Chef | Restaurant owner | Lyon, France 🇫🇷 | Farm-to-table cuisine",
+        "account_age_days": 1825,
+        "follower_count": 12400,
+        "following_count": 890,
+        "posts": [
+          "Spring menu is finally here. Eight courses built around what's coming out of the ground this week. Reservation link in bio.",
+          "The new import regulations are genuinely painful for us. Our Moroccan spice supplier can no longer ship directly — costs us 40% more through distributors. Policy has real consequences.",
+          "Tonight's special: wild morel mushrooms with truffle foam, barely touched. Nature at its peak right now.",
+          "Spent the morning at the market with my team. Teaching them to select produce is as important as teaching them to cook it.",
+          "Interview in Lyon Mag this month about how we've managed to keep a local supply chain despite increased import costs. Link in bio."
+        ],
+        "hashtags_used": ["#chef", "#restaurant", "#lyon", "#farmtotable", "#frenchcuisine"],
+        "avg_posting_hour": 11.3,
+        "posts_per_day": 0.9,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "acc_006",
+        "username": "antwerp_ceramics",
+        "bio": "Handmade ceramics studio in Antwerp 🇧🇪 | Shipping across Europe | Commissions open",
+        "account_age_days": 1460,
+        "follower_count": 8900,
+        "following_count": 1200,
+        "posts": [
+          "New collection drop this Friday — earth tones inspired by the Belgian countryside. First access for newsletter subscribers.",
+          "Took the plunge and finally applied for an export license to ship to the UK post-Brexit. Paperwork was intense but worth it.",
+          "Commission update: currently booked 8 weeks out. Adding a waitlist — link in bio.",
+          "A piece I made three years ago just showed up in someone's kitchen renovation photos. Love when that happens.",
+          "Note on EU shipping: we've had to increase shipping costs for some destinations due to new customs documentation requirements. Working to keep this minimal."
+        ],
+        "hashtags_used": ["#ceramics", "#handmade", "#antwerp", "#belgium", "#craftwork"],
+        "avg_posting_hour": 13.1,
+        "posts_per_day": 0.7,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "acc_007",
+        "username": "eu_trade_alert",
+        "bio": "Alerting Europeans to the truth about Brussels trade policy",
+        "account_age_days": 9,
+        "follower_count": 187,
+        "following_count": 2140,
+        "posts": [
+          "The EU trade directive is KILLING small businesses and the media WON'T COVER IT. Share this truth #StopEUTrade #EUCorrupt",
+          "ANOTHER small business closed this week because of EU regulations. How many more?? #EUCorrupt #StopEUTrade #FightBack",
+          "Brussels wants you distracted. This is what they're actually doing to your economy. Tag @acc_003 @acc_009 #StopEUTrade",
+          "This week's vote could be the end of independent small business in Europe. SHARE EVERYWHERE. #StopEUTrade #EUCorrupt",
+          "We are being silenced. Share before they take this down. @acc_003 @acc_012 @acc_015 agree — the truth must come out #EUCorrupt"
+        ],
+        "hashtags_used": ["#StopEUTrade", "#EUCorrupt", "#FightBack", "#EU"],
+        "avg_posting_hour": 8.1,
+        "posts_per_day": 13.7,
+        "cross_tagged_accounts": ["acc_003", "acc_009", "acc_012", "acc_015"]
+      },
+      {
+        "account_id": "acc_009",
+        "username": "real_euroskeptic",
+        "bio": "Ordinary European fed up with Brussels | Not affiliated with any party",
+        "account_age_days": 11,
+        "follower_count": 312,
+        "following_count": 1760,
+        "posts": [
+          "The truth about EU trade policy they don't want you to see. RT @acc_003 @acc_007 #StopEUTrade #EUCorrupt",
+          "Small businesses are the backbone of Europe and Brussels is DESTROYING them deliberately. WAKE UP. #StopEUTrade #FightBack",
+          "Exclusive: The EU trade directive was written by lobbyists, not elected officials. Source in comments. #EUCorrupt #StopEUTrade",
+          "If you care about European workers, SHARE THIS. The vote is next week. Tag @acc_012 @acc_015 @acc_003 #StopEUTrade",
+          "They are trying to silence accounts like @acc_007 and @acc_003 who speak the truth. Share their posts NOW. #FightBack #EUCorrupt"
+        ],
+        "hashtags_used": ["#StopEUTrade", "#EUCorrupt", "#FightBack", "#EU", "#euroskeptic"],
+        "avg_posting_hour": 7.4,
+        "posts_per_day": 11.9,
+        "cross_tagged_accounts": ["acc_003", "acc_007", "acc_012", "acc_015"]
+      },
+      {
+        "account_id": "acc_011",
+        "username": "brussels_policy_watch",
+        "bio": "Independent policy analysis | EU affairs | Academic | Not partisan",
+        "account_age_days": 3650,
+        "follower_count": 23400,
+        "following_count": 1890,
+        "posts": [
+          "New analysis of the proposed EU Trade Directive 2024/881: the compliance cost projections are likely overstated based on similar 2019 implementation data. Thread below.",
+          "It's worth noting that the trade directive controversy is being amplified by accounts with very short histories and coordinated messaging. Media researchers should take note.",
+          "The SME exemption in Article 12 of the directive addresses many of the concerns being raised, but this aspect is being systematically ignored in the online discourse.",
+          "Historical context: similar regulatory changes in 2011 and 2017 had 60-90 day adjustment periods. The current directive includes similar provisions.",
+          "I've been asked about the accounts pushing #StopEUTrade — the coordination patterns are visible and worth flagging to platform trust & safety teams."
+        ],
+        "hashtags_used": ["#EUpolicy", "#analysis", "#regulation", "#SME", "#Brussels"],
+        "avg_posting_hour": 9.7,
+        "posts_per_day": 1.8,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "acc_012",
+        "username": "protect_eu_workers",
+        "bio": "Standing up for European workers and small business owners",
+        "account_age_days": 10,
+        "follower_count": 156,
+        "following_count": 2030,
+        "posts": [
+          "SHARE THIS: EU trade directive will cost thousands of small business jobs. Brussels doesn't care about workers. #StopEUTrade #EUCorrupt #FightBack",
+          "Another day, another EU attack on small businesses. Join @acc_003 @acc_007 @acc_009 in fighting back. #StopEUTrade",
+          "The vote is this week. If you care about European workers SHARE THIS NOW. Do your part. #StopEUTrade #FightBack",
+          "Mainstream media won't cover this. We are the resistance. RT @acc_015 @acc_007 @acc_003 #EUCorrupt #StopEUTrade",
+          "Every share brings us closer to stopping this. Don't be silent. Tag everyone you know. @acc_009 @acc_015 @acc_007 #StopEUTrade"
+        ],
+        "hashtags_used": ["#StopEUTrade", "#EUCorrupt", "#FightBack", "#EUworkers"],
+        "avg_posting_hour": 8.3,
+        "posts_per_day": 14.1,
+        "cross_tagged_accounts": ["acc_003", "acc_007", "acc_009", "acc_015"]
+      },
+      {
+        "account_id": "acc_015",
+        "username": "eutruth_fighter",
+        "bio": "Fighting for the truth about what Brussels is doing to Europe",
+        "account_age_days": 8,
+        "follower_count": 203,
+        "following_count": 1980,
+        "posts": [
+          "This is being censored. Share before it's taken down. The EU trade directive is an attack on ordinary Europeans. #EUCorrupt #StopEUTrade",
+          "They flagged @acc_003 for telling the truth. This is what censorship looks like. Share @acc_007 @acc_009 @acc_012 posts NOW. #FightBack",
+          "URGENT SHARE: The vote on the EU trade directive is happening. Do not let Brussels win. Tag everyone. #StopEUTrade #EUCorrupt",
+          "This movement started with just a few of us. Now thousands know the truth. Keep sharing. @acc_003 @acc_007 @acc_009 @acc_012 #StopEUTrade",
+          "The algorithm is suppressing us because the truth is too powerful. Manual sharing is our only weapon. #EUCorrupt #FightBack #StopEUTrade"
+        ],
+        "hashtags_used": ["#StopEUTrade", "#EUCorrupt", "#FightBack", "#censored"],
+        "avg_posting_hour": 7.9,
+        "posts_per_day": 15.3,
+        "cross_tagged_accounts": ["acc_003", "acc_007", "acc_009", "acc_012"]
+      }
+    ]
+  },
+  {
+    "scenario_id": "cib_002",
+    "narrative_topic": "Vaccine misinformation campaign pushing anti-mandate narrative",
+    "time_window_hours": 72,
+    "true_cib_accounts": ["usr_b2", "usr_b4", "usr_b6", "usr_b8"],
+    "accounts": [
+      {
+        "account_id": "usr_b1",
+        "username": "dr_emily_chen_md",
+        "bio": "Physician | General practice | Health literacy advocate | Views my own",
+        "account_age_days": 2555,
+        "follower_count": 28400,
+        "following_count": 1100,
+        "posts": [
+          "New CDC guidelines on respiratory illness management are worth reading — some nuanced updates on treatment timing. Link in bio.",
+          "Vaccine hesitancy is a real clinical challenge. Meeting patients where they are is more effective than dismissing their concerns. Trust takes time to build.",
+          "Reminder that flu season is starting early — good time to get your annual vaccine if you haven't. Also wash your hands, it still works.",
+          "Peer-reviewed research on long COVID outcomes is evolving quickly. I'm seeing this clinically too. Still many open questions.",
+          "I understand concerns about new vaccine technology. Happy to answer specific clinical questions in DMs. That's what doctors are for."
+        ],
+        "hashtags_used": ["#publichealth", "#medicine", "#vaccines", "#healthcare"],
+        "avg_posting_hour": 12.3,
+        "posts_per_day": 1.1,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "usr_b2",
+        "username": "vaccine_truth_now",
+        "bio": "Parents deserve the truth about what's in vaccines. Research before you inject.",
+        "account_age_days": 14,
+        "follower_count": 289,
+        "following_count": 3240,
+        "posts": [
+          "PARENTS: The government is hiding the REAL ingredient list. Do your own research before letting them inject your child! #VaccineTruth #DoYourResearch",
+          "Share this before they delete it: 97% of doctors in a poll REFUSED to vaccinate their own children. Link in comments. #VaccineTruth #BigPharma",
+          "Tag @usr_b4 @usr_b6 @usr_b8 — they have the documents Big Pharma doesn't want you to see. SHARE NOW. #VaccineTruth",
+          "Another child injured by the mandates. The media covers this up. @usr_b4 has the statistics. #VaccineTruth #NoMandates",
+          "They're trying to silence us. Share @usr_b6 and @usr_b8 before our accounts are removed. #VaccineTruth #Censored"
+        ],
+        "hashtags_used": ["#VaccineTruth", "#DoYourResearch", "#BigPharma", "#NoMandates", "#Censored"],
+        "avg_posting_hour": 8.2,
+        "posts_per_day": 16.8,
+        "cross_tagged_accounts": ["usr_b4", "usr_b6", "usr_b8"]
+      },
+      {
+        "account_id": "usr_b3",
+        "username": "concerned_parent_network",
+        "bio": "Community of parents sharing real experiences | Not anti-vax, just pro-informed-consent",
+        "account_age_days": 1095,
+        "follower_count": 45200,
+        "following_count": 2300,
+        "posts": [
+          "We are a community for parents to share experiences about childhood health decisions. All perspectives welcome, all conversations grounded in respect.",
+          "Feature this week: a pediatrician answers the most common vaccine questions parents ask. No judgment, just information. Read in bio.",
+          "Discussion thread: how do you talk to your partner when you disagree on vaccine schedules? Sharing community responses below.",
+          "Clarification: we do not endorse any specific medical decisions. Our goal is informed consent and access to accurate information.",
+          "We've seen misinformation spreading in parenting communities. Please verify sources before sharing. We link to peer-reviewed research only."
+        ],
+        "hashtags_used": ["#parenting", "#informedconsent", "#childhealth", "#community"],
+        "avg_posting_hour": 10.8,
+        "posts_per_day": 2.3,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "usr_b4",
+        "username": "nomandates_freedom",
+        "bio": "Medical freedom is human freedom. No forced injections. Ever.",
+        "account_age_days": 13,
+        "follower_count": 341,
+        "following_count": 2980,
+        "posts": [
+          "The data they're hiding: 1 in 39 children experiences a serious adverse event after vaccination. Share this with every parent you know! @usr_b2 @usr_b6 @usr_b8 #NoMandates",
+          "BREAKING: European regulators quietly updated safety guidance. Why didn't the media cover this? See @usr_b2 for the documents. #VaccineTruth #NoMandates",
+          "Doctors who question the narrative are being silenced. Share @usr_b8's latest post before it gets removed. #Censored #VaccineTruth",
+          "Share this to every parent group you're in. The truth about mandates. @usr_b2 @usr_b6 #NoMandates #VaccineTruth",
+          "They deleted @usr_b6's last post. This is what censorship of medical truth looks like. We need to amplify NOW. #Censored #VaccineTruth"
+        ],
+        "hashtags_used": ["#NoMandates", "#VaccineTruth", "#Censored", "#MedicalFreedom"],
+        "avg_posting_hour": 7.9,
+        "posts_per_day": 14.2,
+        "cross_tagged_accounts": ["usr_b2", "usr_b6", "usr_b8"]
+      },
+      {
+        "account_id": "usr_b5",
+        "username": "public_health_data",
+        "bio": "Epidemiologist | Data-driven public health | University faculty | RTs ≠ endorsement",
+        "account_age_days": 4015,
+        "follower_count": 67300,
+        "following_count": 2100,
+        "posts": [
+          "The '1 in 39 adverse events' statistic circulating is from a misread study. The actual rate of serious events in the source paper is 0.003%. Thread on why this matters.",
+          "Vaccine hesitancy campaigns often rely on real statistics stripped of context. The 'doctors refusing to vaccinate their children' post is fabricated — no such poll exists.",
+          "Worth flagging: there are several coordinated accounts pushing the same fabricated statistics this week. Real data thread below.",
+          "Good piece in NEJM this week on pediatric vaccination rates post-pandemic and what they mean for herd immunity thresholds.",
+          "I've received several DMs asking about the 'suppressed European regulator update' — it doesn't exist. Happy to share the actual guidance documents."
+        ],
+        "hashtags_used": ["#publichealth", "#epidemiology", "#datascience", "#vaccines", "#misinformation"],
+        "avg_posting_hour": 9.4,
+        "posts_per_day": 1.7,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "usr_b6",
+        "username": "medical_truth_exposed",
+        "bio": "Exposing what the pharmaceutical industry doesn't want you to know",
+        "account_age_days": 11,
+        "follower_count": 198,
+        "following_count": 3100,
+        "posts": [
+          "Big Pharma spends $30M/day lobbying. Your doctor's opinion is bought and paid for. Do your own research. @usr_b2 @usr_b4 #BigPharma #VaccineTruth",
+          "Share before deleted: the VAERS data they're hiding from you. @usr_b8 has the analysis. #VaccineTruth #NoMandates",
+          "Another whistle-blower silenced. The truth will come out. Tag @usr_b2 @usr_b4 @usr_b8 to spread awareness. #Censored #VaccineTruth",
+          "Parents: screenshot and save everything. They are deleting the truth systematically. Share @usr_b4's post RIGHT NOW. #VaccineTruth #NoMandates",
+          "The documents exist. We have them. Share everywhere before they disappear. @usr_b2 @usr_b4 @usr_b8 #VaccineTruth #Censored"
+        ],
+        "hashtags_used": ["#VaccineTruth", "#BigPharma", "#NoMandates", "#Censored"],
+        "avg_posting_hour": 8.5,
+        "posts_per_day": 15.6,
+        "cross_tagged_accounts": ["usr_b2", "usr_b4", "usr_b8"]
+      },
+      {
+        "account_id": "usr_b7",
+        "username": "vaccine_policy_reform",
+        "bio": "Advocating for better informed consent policies and transparency in clinical trials",
+        "account_age_days": 890,
+        "follower_count": 12800,
+        "following_count": 1450,
+        "posts": [
+          "Informed consent should be genuine — not a signature on a form most patients don't have time to read. This is a real policy gap worth addressing.",
+          "New paper on clinical trial transparency requirements: interesting findings on disclosure timelines. Full review posted to our blog.",
+          "We support vaccines AND better transparency. These are not contradictory positions. Pushing back on both the denial community and anyone dismissing legitimate policy critique.",
+          "The misinformation circulating this week is damaging — it conflates legitimate policy debates with fabricated statistics. Here's a breakdown.",
+          "Good news: the FDA updated its adverse event reporting guidelines. More granular tracking is a step forward. Details in thread."
+        ],
+        "hashtags_used": ["#vaccinepolicy", "#informedconsent", "#transparency", "#publichealth"],
+        "avg_posting_hour": 11.2,
+        "posts_per_day": 1.4,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "usr_b8",
+        "username": "truth_about_jabs",
+        "bio": "Sharing what mainstream media won't. Parent. Researcher. Truth seeker.",
+        "account_age_days": 12,
+        "follower_count": 267,
+        "following_count": 2870,
+        "posts": [
+          "VAERS has logged 1.5M adverse events. The media says nothing. @usr_b2 @usr_b4 @usr_b6 are the only ones talking about this. Share NOW. #VaccineTruth",
+          "They deleted @usr_b6's post within minutes. This proves they're watching. Screenshot and share everything from @usr_b2 and @usr_b4. #Censored #VaccineTruth",
+          "The 'safe and effective' narrative is collapsing. Share this to every parent group. @usr_b2 has all the evidence. #VaccineTruth #NoMandates",
+          "URGENT: Share @usr_b4's post before end of day. They are scrubbing this from the internet in real time. #VaccineTruth #Censored",
+          "We are growing despite the censorship. Share @usr_b6 @usr_b2 @usr_b4. The truth can't be stopped. #VaccineTruth #NoMandates #FightBack"
+        ],
+        "hashtags_used": ["#VaccineTruth", "#Censored", "#NoMandates", "#FightBack"],
+        "avg_posting_hour": 8.0,
+        "posts_per_day": 17.1,
+        "cross_tagged_accounts": ["usr_b2", "usr_b4", "usr_b6"]
+      }
+    ]
+  },
+  {
+    "scenario_id": "cib_003",
+    "narrative_topic": "Cryptocurrency pump campaign for $SOLX token",
+    "time_window_hours": 24,
+    "true_cib_accounts": ["cry_02", "cry_04", "cry_07"],
+    "accounts": [
+      {
+        "account_id": "cry_01",
+        "username": "defi_research_daily",
+        "bio": "DeFi analyst | Independent research | Not financial advice | 5 years in crypto",
+        "account_age_days": 1825,
+        "follower_count": 43200,
+        "following_count": 890,
+        "posts": [
+          "Thread on Solana ecosystem fundamentals: why the TVL growth is real but some valuations are stretched. Full analysis below.",
+          "$SOLX: I've looked at the whitepaper. The tokenomics have some unusual vesting schedules that aren't getting enough attention. Reading the fine print matters.",
+          "When you see 5+ accounts posting identical price predictions for the same obscure token within an hour, that's a coordination signal not organic sentiment.",
+          "New liquidity pool analysis up: comparing fees and slippage across DEXs. Practical guide for actual traders, not speculators.",
+          "Reminder that pump-and-dump schemes in small-cap tokens are extremely common and most retail participants lose money. Not tinfoil, just statistics."
+        ],
+        "hashtags_used": ["#DeFi", "#crypto", "#blockchain", "#research", "#Solana"],
+        "avg_posting_hour": 13.5,
+        "posts_per_day": 2.1,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "cry_02",
+        "username": "solx_millionaire",
+        "bio": "Made $2M on $DOGE. Now going all in on $SOLX. Follow for alpha 🚀",
+        "account_age_days": 7,
+        "follower_count": 312,
+        "following_count": 4200,
+        "posts": [
+          "🚨 $SOLX is the next 100x. Get in NOW before the whales do. This is the alpha the big accounts won't share. @cry_04 @cry_07 can confirm. 🚀🚀",
+          "$SOLX just broke resistance!! This is the breakout we've been waiting for. @cry_04 called this EXACTLY. Loading up NOW. 💎🙌 #SOLX #crypto",
+          "The team behind $SOLX reached out to me. What they told me is INSANE. NDA prevents me from sharing but GET IN before Tuesday. @cry_07 knows. 🔥",
+          "Last chance to get $SOLX under $0.001. I'm buying $50K more right now. This is not financial advice but I'm showing you my wallet screenshot. 💰",
+          "The doubters are going to regret this SO much. $SOLX 10x incoming this week. @cry_04 @cry_07 are you ready? 🚀"
+        ],
+        "hashtags_used": ["#SOLX", "#crypto", "#100x", "#DeFi", "#altcoin"],
+        "avg_posting_hour": 9.1,
+        "posts_per_day": 22.3,
+        "cross_tagged_accounts": ["cry_04", "cry_07"]
+      },
+      {
+        "account_id": "cry_03",
+        "username": "blockchain_dev_nico",
+        "bio": "Smart contract developer | Solana ecosystem | Building @EchoProtocol | Open to collaborations",
+        "account_age_days": 1460,
+        "follower_count": 8900,
+        "following_count": 1200,
+        "posts": [
+          "New audit results for EchoProtocol v2. All critical issues resolved. Report is public in our GitHub. Transparency matters.",
+          "Interesting discussion at yesterday's Solana builder meetup about state compression tradeoffs. Technical thread below for devs.",
+          "Reminder: if someone's promoting a token and can't explain the underlying protocol, that's a red flag. Hype without technical substance is a warning sign.",
+          "Working through the $SOLX whitepaper — the tokenomics structure is... interesting. More analysis coming but buyers should read carefully.",
+          "PR open for review: improved error handling in the vault contract. Looking for Rust devs to sanity check the logic."
+        ],
+        "hashtags_used": ["#Solana", "#smartcontracts", "#blockchain", "#DeFi", "#developer"],
+        "avg_posting_hour": 14.2,
+        "posts_per_day": 1.8,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "cry_04",
+        "username": "crypto_alpha_signals",
+        "bio": "Free alpha every day. No paid groups. Just gains. 📈",
+        "account_age_days": 8,
+        "follower_count": 478,
+        "following_count": 5100,
+        "posts": [
+          "🚨 SIGNAL: $SOLX is a 50-100x in the next 30 days. My model is showing accumulation by smart money. Get in NOW. @cry_02 @cry_07 agree. 🚀",
+          "CONFIRMED: $SOLX whale wallet added $2M position 3 hours ago. This is NOT a drill. Buy before the announcement tomorrow. #SOLX",
+          "I told my followers about $DOGE at $0.003 and $SHIB at launch. $SOLX is the same play. @cry_02 has the full breakdown. DO NOT MISS THIS.",
+          "Every hour you wait on $SOLX is gains you're leaving on the table. @cry_07 is buying right now. Screenshot your buy-in and tag me. 💎",
+          "The $SOLX team just confirmed a partnership announcement for Wednesday. I can't say who but it's MASSIVE. Last call. @cry_02 @cry_07 #SOLX"
+        ],
+        "hashtags_used": ["#SOLX", "#cryptosignals", "#altcoin", "#100x", "#DeFi"],
+        "avg_posting_hour": 9.4,
+        "posts_per_day": 19.7,
+        "cross_tagged_accounts": ["cry_02", "cry_07"]
+      },
+      {
+        "account_id": "cry_05",
+        "username": "crypto_skeptic_watch",
+        "bio": "Tracking scams and pump-and-dumps in crypto since 2017 | DMs open for tips",
+        "account_age_days": 3285,
+        "follower_count": 89200,
+        "following_count": 2100,
+        "posts": [
+          "$SOLX pump underway — @cry_02, @cry_04, @cry_07 are coordinating. All three accounts created within 2 weeks of each other. Classic pump setup.",
+          "The 'whale wallet' @cry_04 is referencing is the team's own wallet. This is public on-chain data. Do not buy $SOLX on this 'signal'.",
+          "Tracking the $SOLX accounts: identical posting times, cross-referencing same wallets, 'partnership announcement' claim is unverifiable. Textbook pump.",
+          "PSA: no legitimate alpha caller needs you to buy urgently in the next 24 hours. Urgency is a manipulation tactic. Not financial advice.",
+          "On-chain analysis: $SOLX liquidity is paper-thin. A $50K sell would crater the price. This is designed to dump on retail buyers."
+        ],
+        "hashtags_used": ["#cryptoscam", "#pumpanddump", "#DYOR", "#crypto", "#scamalert"],
+        "avg_posting_hour": 11.8,
+        "posts_per_day": 3.2,
+        "cross_tagged_accounts": []
+      },
+      {
+        "account_id": "cry_07",
+        "username": "solx_insider_alpha",
+        "bio": "Connected to the $SOLX team. Sharing before the big announcement. NDA signed.",
+        "account_age_days": 6,
+        "follower_count": 203,
+        "following_count": 3890,
+        "posts": [
+          "I can't say much but $SOLX is going to make a lot of people very wealthy this week. @cry_02 @cry_04 know what I know. Get in while you can. 🚀",
+          "Partnership announcement drops Wednesday. I've seen the documents. $SOLX will never be this cheap again. Last warning. @cry_02 @cry_04 #SOLX",
+          "Just doubled my $SOLX position. This is the most confident I've been about anything in 5 years of crypto. @cry_04 is right about the whale. 💎",
+          "The team asked me to stop hinting but I can't let my community miss this. Buy $SOLX NOW. @cry_02 and @cry_04 are buying too. #SOLX 🚀",
+          "Confirmed: the announcement is real and it's enormous. After Wednesday, this community will have made it. @cry_02 @cry_04 ready? 🔥 #SOLX"
+        ],
+        "hashtags_used": ["#SOLX", "#crypto", "#insider", "#100x", "#altcoin"],
+        "avg_posting_hour": 9.0,
+        "posts_per_day": 20.8,
+        "cross_tagged_accounts": ["cry_02", "cry_04"]
+      }
+    ]
+  }
+]

@@ -1,0 +1,61 @@
+name: trustguard-env
+version: "1.0.0"
+description: >
+  TrustGuardEnv is a real-world OpenEnv environment simulating Meta-scale
+  Trust & Safety operations. AI agents act as content moderators reviewing
+  posts, enforcing platform policies, detecting coordinated inauthentic
+  behavior networks, and handling user appeals — mirroring the actual
+  workflows used by social media trust & safety teams.
+domain: trust_and_safety
+author: "TrustGuard Team"
+license: MIT
+
+tasks:
+  - name: spam_detection
+    difficulty: easy
+    max_steps: 15
+    description: >
+      Agent reviews a queue of 15 posts and must identify spam content
+      (keyword spam, phishing, scams, duplicate content) vs. legitimate posts.
+      Tests basic content pattern recognition.
+
+  - name: policy_enforcement
+    difficulty: medium
+    max_steps: 12
+    description: >
+      Agent enforces platform policies on contextually ambiguous content
+      including hate speech, misinformation, PII exposure, and borderline
+      cases requiring nuanced judgment and policy citation.
+
+  - name: coordinated_inauthentic_behavior
+    difficulty: hard
+    max_steps: 1
+    description: >
+      Agent investigates a network of 10 accounts and must identify which
+      accounts are participating in coordinated inauthentic behavior (CIB),
+      requiring graph-level reasoning across posting patterns, timing,
+      language, and cross-referencing signals.
+
+  - name: appeal_review
+    difficulty: medium
+    max_steps: 8
+    description: >
+      Agent reviews user appeals against previous moderation decisions.
+      Must reason about original violations, new evidence provided in appeals,
+      and whether modified actions (overturn, downgrade) are warranted.
+
+reward_range: [0.0, 1.0]
+action_space: structured_json
+observation_space: structured_json
+
+api:
+  reset: "POST /reset"
+  step: "POST /step"
+  state: "GET /state"
+  health: "GET /health"
+
+environment:
+  requires_llm: false
+  stateful: true
+  deterministic: true
+  seed: 42

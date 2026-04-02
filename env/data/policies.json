@@ -1,0 +1,22 @@
+{
+  "spam_policy_1.1": "Content that uses deceptive tactics, misleading links, or impersonates legitimate services to steal users' credentials or personal information (phishing) is strictly prohibited and will be immediately removed.",
+  "spam_policy_1.2": "Content that constitutes unsolicited commercial messaging, get-rich-quick schemes, chain letter mechanics, or artificial follower/engagement growth solicitation is prohibited.",
+  "spam_policy_1.3": "Identical or near-identical content posted across multiple accounts or in rapid succession by the same account constitutes duplicate content spam and is subject to removal.",
+  "hate_speech_policy_2.1": "Content that directly attacks, dehumanizes, or calls for discrimination against people based on protected characteristics including race, ethnicity, national origin, religion, gender, sexual orientation, or disability is prohibited.",
+  "hate_speech_policy_2.2": "Content using slurs, dehumanizing comparisons (e.g., comparing groups to animals or diseases), or calling for exclusion of protected groups is prohibited regardless of claimed intent.",
+  "hate_speech_policy_2.3": "Coded language, dog whistles, or implicitly hateful content targeting protected groups will be treated as hate speech when the user's intent and targeting pattern is reasonably clear from context and account history.",
+  "satire_exemption_3.4": "Satirical, parody, or clearly fictional content about public figures or institutions is permitted when the satirical intent would be reasonably apparent to an average viewer. Account bio and context are considered.",
+  "health_misinformation_4.1": "Content containing verifiably false health claims that could cause harm — including false information about vaccines, unproven cures, or denial of established medical consensus — will be labeled and have distribution reduced.",
+  "health_misinformation_4.2": "Content promoting dangerous unproven treatments, recommending harmful substances, or actively discouraging evidence-based medical care will be removed when the content poses direct risk of physical harm.",
+  "misinformation_policy_4.1": "Content containing demonstrably false factual claims about public events, elections, or institutions will be labeled with a fact-check notice and may have reach restricted.",
+  "privacy_policy_5.1": "Content that exposes private personal information without the subject's consent — including home addresses, phone numbers, financial details, government ID numbers, or precise location data — is prohibited and will be removed.",
+  "privacy_policy_5.2": "Non-consensual sharing of intimate images or content that facilitates the location or harassment of a private individual is prohibited.",
+  "newsworthiness_exemption_6.1": "Graphic or sensitive content that would otherwise violate content policies may be permitted when posted by a verified press organization and serves a clear, documented public interest. Content must include appropriate context and viewer warnings.",
+  "illegal_goods_policy_7.3": "Content soliciting the sale, purchase, trade, or distribution of illegal drugs, prescription medications without a prescription, counterfeit goods, or other prohibited items is strictly prohibited.",
+  "self_harm_policy_8.1": "Content that promotes, glorifies, provides instructions for, or encourages self-harm or suicide must be escalated to the specialized safety review team for immediate assessment. Do not action independently.",
+  "self_harm_policy_8.2": "Content indicating a user may be in immediate crisis or danger of self-harm requires urgent escalation to the safety team with priority flagging.",
+  "nudity_policy_9.1": "Explicit sexual nudity is prohibited on the platform.",
+  "nudity_policy_9.2": "Non-sexual artistic or educational nudity (e.g., fine art, medical diagrams, historical photographs) is permitted with an age-gate applied to restrict viewing to adult users.",
+  "cib_policy_10.1": "Coordinated inauthentic behavior (CIB) — the use of multiple fake, duplicate, or coordinated accounts to artificially amplify narratives, manufacture consensus, or mislead about the origin of content — is prohibited.",
+  "cib_policy_10.2": "Networks of accounts demonstrating coordinated posting patterns (similar timing, shared messaging, cross-referencing, synchronized hashtag use) will be actioned as a coordinated network, not as individual accounts."
+}

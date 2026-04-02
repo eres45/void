@@ -1,0 +1,272 @@
+[
+  {
+    "post_id": "sp_001",
+    "content": "🔥🔥 Make $5,000 WORKING FROM HOME this week! No experience needed! Limited spots available! Click the link in bio NOW to secure your spot! 💰💰 #workfromhome #makemoneyonline #passiveincome #sidehustle",
+    "user": {
+      "account_age_days": 12,
+      "previous_violations": 0,
+      "follower_count": 47,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 320, "likes": 3, "shares": 1, "comments": 0, "report_count": 8 },
+    "context": null,
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "spam_policy_1.2",
+      "severity": "high"
+    }
+  },
+  {
+    "post_id": "sp_002",
+    "content": "IMPORTANT SECURITY NOTICE: Your account has been flagged for unusual login activity. Verify your identity immediately at https://meta-secure-account-verify.xyz/confirm or your account will be permanently suspended within 24 hours.",
+    "user": {
+      "account_age_days": 4,
+      "previous_violations": 0,
+      "follower_count": 12,
+      "is_verified": false,
+      "account_type": "bot_suspected"
+    },
+    "engagement": { "views": 1200, "likes": 0, "shares": 45, "comments": 2, "report_count": 67 },
+    "context": "Posted in 15 different community groups within 10 minutes by the same account.",
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "spam_policy_1.1",
+      "severity": "high"
+    }
+  },
+  {
+    "post_id": "sp_003",
+    "content": "Just tried the new brunch spot that opened downtown — the avocado toast was actually worth the hype and I say that as someone who usually rolls their eyes at it 🥑 Anyone else been? What did you order?",
+    "user": {
+      "account_age_days": 1420,
+      "previous_violations": 0,
+      "follower_count": 842,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 543, "likes": 61, "shares": 3, "comments": 24, "report_count": 0 },
+    "context": null,
+    "ground_truth": {
+      "decision": "approve",
+      "policy_violated": null,
+      "severity": "none"
+    }
+  },
+  {
+    "post_id": "sp_004",
+    "content": "FOLLOW4FOLLOW! F4F! L4L! LIKE4LIKE! Following everyone who follows me back RIGHT NOW!! Let's all grow together 🚀🚀 Drop your @ in the comments and I will follow! #f4f #followback #growmyaccount #followers",
+    "user": {
+      "account_age_days": 23,
+      "previous_violations": 1,
+      "follower_count": 203,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 890, "likes": 112, "shares": 34, "comments": 206, "report_count": 3 },
+    "context": null,
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "spam_policy_1.2",
+      "severity": "low"
+    }
+  },
+  {
+    "post_id": "sp_005",
+    "content": "Finished reading 'Educated' by Tara Westover this weekend. Absolutely devastating and inspiring in equal measure. If you haven't read it yet, what are you doing with your life? 10/10.",
+    "user": {
+      "account_age_days": 2190,
+      "previous_violations": 0,
+      "follower_count": 531,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 1230, "likes": 187, "shares": 42, "comments": 38, "report_count": 0 },
+    "context": null,
+    "ground_truth": {
+      "decision": "approve",
+      "policy_violated": null,
+      "severity": "none"
+    }
+  },
+  {
+    "post_id": "sp_006",
+    "content": "I turned $500 into $47,000 in just 3 weeks using this crypto signal bot! My mentor @cryptoking_official shares FREE signals every single day. DM me for the exclusive group link 💎🚀 Don't miss this opportunity #crypto #bitcoin #getrich #financialfreedom",
+    "user": {
+      "account_age_days": 8,
+      "previous_violations": 0,
+      "follower_count": 31,
+      "is_verified": false,
+      "account_type": "bot_suspected"
+    },
+    "engagement": { "views": 2100, "likes": 7, "shares": 2, "comments": 1, "report_count": 34 },
+    "context": null,
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "spam_policy_1.2",
+      "severity": "high"
+    }
+  },
+  {
+    "post_id": "sp_007",
+    "content": "Road closure heads-up for anyone commuting through the north side: Highway 9 between exits 14 and 17 will be fully closed this weekend for emergency bridge maintenance. Plan your routes now. Expected to reopen Monday morning.",
+    "user": {
+      "account_age_days": 730,
+      "previous_violations": 0,
+      "follower_count": 2840,
+      "is_verified": true,
+      "account_type": "press"
+    },
+    "engagement": { "views": 18400, "likes": 203, "shares": 891, "comments": 47, "report_count": 0 },
+    "context": "Posted by verified local news account @CityNewsDaily.",
+    "ground_truth": {
+      "decision": "approve",
+      "policy_violated": null,
+      "severity": "none"
+    }
+  },
+  {
+    "post_id": "sp_008",
+    "content": "Amazing deals at ShoeMart! Use code SAVE30 for 30% off everything! Sale ends TONIGHT! Don't miss out on the best prices of the year!",
+    "user": {
+      "account_age_days": 19,
+      "previous_violations": 0,
+      "follower_count": 88,
+      "is_verified": false,
+      "account_type": "bot_suspected"
+    },
+    "engagement": { "views": 450, "likes": 2, "shares": 0, "comments": 0, "report_count": 12 },
+    "context": "This exact post has been shared by 47 different accounts in the last 2 hours with identical text.",
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "spam_policy_1.3",
+      "severity": "medium"
+    }
+  },
+  {
+    "post_id": "sp_009",
+    "content": "PSA for pet owners: my vet just reminded me that xylitol (found in sugar-free gum, candy, and some peanut butters) is extremely toxic to dogs — even tiny amounts can cause liver failure. Please check your labels and keep these products out of reach. Please share so other dog parents know 🐶❤️",
+    "user": {
+      "account_age_days": 1850,
+      "previous_violations": 0,
+      "follower_count": 1240,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 45200, "likes": 8920, "shares": 12400, "comments": 672, "report_count": 0 },
+    "context": null,
+    "ground_truth": {
+      "decision": "approve",
+      "policy_violated": null,
+      "severity": "none"
+    }
+  },
+  {
+    "post_id": "sp_010",
+    "content": "TYPE AMEN if you believe in miracles 🙏 SHARE this to 10 people to receive your blessing TODAY! God is watching who scrolls past without sharing this message of hope and healing! Your miracle is 24 hours away!",
+    "user": {
+      "account_age_days": 156,
+      "previous_violations": 2,
+      "follower_count": 389,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 5600, "likes": 1200, "shares": 3400, "comments": 890, "report_count": 47 },
+    "context": null,
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "spam_policy_1.2",
+      "severity": "low"
+    }
+  },
+  {
+    "post_id": "sp_011",
+    "content": "Hot take that I will absolutely die on this hill: pineapple belongs on pizza and the discourse around this has gone on long enough. It adds sweetness and acidity which is literally flavor balance. Fight me.",
+    "user": {
+      "account_age_days": 940,
+      "previous_violations": 0,
+      "follower_count": 723,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 3200, "likes": 412, "shares": 88, "comments": 203, "report_count": 0 },
+    "context": null,
+    "ground_truth": {
+      "decision": "approve",
+      "policy_violated": null,
+      "severity": "none"
+    }
+  },
+  {
+    "post_id": "sp_012",
+    "content": "🎁 MASSIVE GIVEAWAY!! We're giving away 5 brand new iPhone 16 Pro Max phones! HOW TO ENTER: 1) Follow this account 2) Like this post 3) Tag 3 friends in the comments 4) Share to your story! Winner announced this Friday! ✅🎉",
+    "user": {
+      "account_age_days": 31,
+      "previous_violations": 0,
+      "follower_count": 2341,
+      "is_verified": false,
+      "account_type": "business"
+    },
+    "engagement": { "views": 34000, "likes": 8900, "shares": 5600, "comments": 12400, "report_count": 89 },
+    "context": "Account has no prior posts, no website link, no verifiable business registration.",
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "spam_policy_1.2",
+      "severity": "medium"
+    }
+  },
+  {
+    "post_id": "sp_013",
+    "content": "Reminder that the farmer's market is back every Saturday starting this weekend! Hours are 8am to 2pm at Riverside Park. Fresh local produce, artisan honey, sourdough bread, and this year there's a new pottery section too 🌽🍞",
+    "user": {
+      "account_age_days": 1095,
+      "previous_violations": 0,
+      "follower_count": 4320,
+      "is_verified": true,
+      "account_type": "business"
+    },
+    "engagement": { "views": 6700, "likes": 534, "shares": 231, "comments": 89, "report_count": 0 },
+    "context": "Posted by verified local community organization account.",
+    "ground_truth": {
+      "decision": "approve",
+      "policy_violated": null,
+      "severity": "none"
+    }
+  },
+  {
+    "post_id": "sp_014",
+    "content": "Found an INCREDIBLE deal you won't believe! Seriously shocked at these prices 😱 Going fast → http://amaz0n-deals-today-special.net/limited-offer Check it out before it's gone! Only valid for 2 hours!!",
+    "user": {
+      "account_age_days": 6,
+      "previous_violations": 0,
+      "follower_count": 18,
+      "is_verified": false,
+      "account_type": "bot_suspected"
+    },
+    "engagement": { "views": 890, "likes": 1, "shares": 0, "comments": 0, "report_count": 28 },
+    "context": "URL domain is not affiliated with Amazon. Misspelled domain registered 3 days ago.",
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "spam_policy_1.1",
+      "severity": "high"
+    }
+  },
+  {
+    "post_id": "sp_015",
+    "content": "Finally got around to fixing that leaky bathroom faucet myself after watching 4 YouTube tutorials. Took 2 hours, one trip to the hardware store, and a minor existential crisis — but I did it. Saved $200 in plumber fees. Small wins 🔧",
+    "user": {
+      "account_age_days": 2920,
+      "previous_violations": 0,
+      "follower_count": 1087,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 4300, "likes": 892, "shares": 67, "comments": 142, "report_count": 0 },
+    "context": null,
+    "ground_truth": {
+      "decision": "approve",
+      "policy_violated": null,
+      "severity": "none"
+    }
+  }
+]

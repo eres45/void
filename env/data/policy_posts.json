@@ -1,0 +1,218 @@
+[
+  {
+    "post_id": "pe_001",
+    "content": "These [religious group] are all terrorists and should be deported. They don't belong in this country and never will. Our streets were safer before they came. #pureamerica #stoptheinvasion",
+    "user": {
+      "account_age_days": 87,
+      "previous_violations": 2,
+      "follower_count": 412,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 2300, "likes": 89, "shares": 34, "comments": 78, "report_count": 143 },
+    "context": "Account has two prior removals for hate speech targeting the same group.",
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "hate_speech_policy_2.1",
+      "severity": "high"
+    }
+  },
+  {
+    "post_id": "pe_002",
+    "content": "BREAKING: Local mayor announces new city ordinance requiring all squirrels to carry government-issued photo ID. 'Unregistered squirrels are a serious public safety threat,' Mayor Thompson said in a press conference. Implementation begins Tuesday. Violators face a $500 fine. #LocalNews #satire",
+    "user": {
+      "account_age_days": 1460,
+      "previous_violations": 0,
+      "follower_count": 89400,
+      "is_verified": true,
+      "account_type": "creator"
+    },
+    "engagement": { "views": 234000, "likes": 45000, "shares": 12000, "comments": 8900, "report_count": 12 },
+    "context": "Account bio reads: 'Satirical news and political comedy. Everything published here is fiction and parody.' Verified creator account with 3-year history of satire content.",
+    "ground_truth": {
+      "decision": "approve",
+      "policy_violated": null,
+      "severity": "none"
+    }
+  },
+  {
+    "post_id": "pe_003",
+    "content": "WARNING TO ALL MY NEIGHBORS!! This man, James Hargrove, who lives at 2847 Elm Street, Riverside IL 60546, has been stealing packages from porches on our block. His phone number is (312) 847-2291. Call him and let him know the neighborhood is watching! SHARE THIS!!",
+    "user": {
+      "account_age_days": 2190,
+      "previous_violations": 0,
+      "follower_count": 342,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 8900, "likes": 234, "shares": 1240, "comments": 312, "report_count": 67 },
+    "context": null,
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "privacy_policy_5.1",
+      "severity": "high"
+    }
+  },
+  {
+    "post_id": "pe_004",
+    "content": "DOCTORS WON'T TELL YOU THIS: Mix 1 part bleach with 100 parts water and drink daily. This miracle solution cures COVID-19, eliminates cancer cells, and treats most chronic diseases. Big Pharma has suppressed this for decades to protect profits. Share before they delete this!!",
+    "user": {
+      "account_age_days": 14,
+      "previous_violations": 0,
+      "follower_count": 234,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 12400, "likes": 234, "shares": 3400, "comments": 189, "report_count": 892 },
+    "context": null,
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "health_misinformation_4.2",
+      "severity": "critical"
+    }
+  },
+  {
+    "post_id": "pe_005",
+    "content": "WARNING — Graphic content: The following video documents the aftermath of today's 7.2 magnitude earthquake in the southern region. Viewer discretion strongly advised. This footage is being shared to show the scale of devastation and support urgent international aid requests. 234 confirmed dead, thousands displaced. Aid organizations linked in bio.",
+    "user": {
+      "account_age_days": 4380,
+      "previous_violations": 0,
+      "follower_count": 2340000,
+      "is_verified": true,
+      "account_type": "press"
+    },
+    "engagement": { "views": 4500000, "likes": 89000, "shares": 340000, "comments": 45000, "report_count": 234 },
+    "context": "Posted by @Reuters, a verified global press organization with 12-year account history. Post includes content warning and is accompanied by factual reporting.",
+    "ground_truth": {
+      "decision": "approve",
+      "policy_violated": null,
+      "severity": "none"
+    }
+  },
+  {
+    "post_id": "pe_006",
+    "content": "Need Adderall without a prescription? Got 30mg XR pills available, $15 each or bulk discount. Discreet nationwide shipping, no questions asked. DM me directly. Looking for Xanax or Valium too, can source. 🔵🔵",
+    "user": {
+      "account_age_days": 178,
+      "previous_violations": 1,
+      "follower_count": 89,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 450, "likes": 3, "shares": 0, "comments": 12, "report_count": 78 },
+    "context": "Previous violation was also for solicitation of controlled substances.",
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "illegal_goods_policy_7.3",
+      "severity": "high"
+    }
+  },
+  {
+    "post_id": "pe_007",
+    "content": "For anyone else out there who can't take it anymore — I've found some techniques that finally make the pain stop permanently. Not just management, actual relief. The kind no therapist ever told me about. Happy to share in DMs with anyone who needs it. You don't have to keep suffering this way. There is always a way out.",
+    "user": {
+      "account_age_days": 730,
+      "previous_violations": 0,
+      "follower_count": 234,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 1200, "likes": 23, "shares": 4, "comments": 87, "report_count": 34 },
+    "context": "Posted at 3:47 AM. User's recent posts include expressions of hopelessness and references to being a burden to others.",
+    "ground_truth": {
+      "decision": "escalate",
+      "policy_violated": "self_harm_policy_8.1",
+      "severity": "critical"
+    }
+  },
+  {
+    "post_id": "pe_008",
+    "content": "It's not racist to notice patterns. Crime statistics don't lie, and some communities simply have different values and different outcomes. Do your research before calling people bigots for stating observable facts. #justsaying #facts #statistics",
+    "user": {
+      "account_age_days": 312,
+      "previous_violations": 3,
+      "follower_count": 1240,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 8900, "likes": 340, "shares": 234, "comments": 567, "report_count": 189 },
+    "context": "User has 3 prior hate speech violations, all targeting the same racial group. Account has a documented pattern of posting race-based content using 'statistics' framing.",
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "hate_speech_policy_2.3",
+      "severity": "high"
+    }
+  },
+  {
+    "post_id": "pe_009",
+    "content": "PATRIOTS SHARE THIS 10,000 TIMES OR THE TRUTH WILL BE BURIED FOREVER!! The government is hiding what they did in [CITY]. If this post gets 10,000 shares, the documents will finally be released publicly!! This is your PATRIOTIC DUTY to share to every group and every friend RIGHT NOW 🇺🇸🇺🇸🇺🇸",
+    "user": {
+      "account_age_days": 45,
+      "previous_violations": 0,
+      "follower_count": 234,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 34000, "likes": 1200, "shares": 8900, "comments": 456, "report_count": 234 },
+    "context": "Identical text found across 12 separate accounts posting simultaneously. Classic chain-letter mechanic combined with political conspiracy framing.",
+    "ground_truth": {
+      "decision": "remove",
+      "policy_violated": "spam_policy_1.2",
+      "severity": "medium"
+    }
+  },
+  {
+    "post_id": "pe_010",
+    "content": "Just visited the Uffizi Gallery in Florence — this painting stopped me in my tracks. Botticelli's technique for depicting movement and light is still unmatched 700 years later. Renaissance art history is genuinely one of humanity's greatest achievements. [Image: Botticelli's Primavera — classical painting with nude allegorical figures]",
+    "user": {
+      "account_age_days": 1825,
+      "previous_violations": 0,
+      "follower_count": 12400,
+      "is_verified": true,
+      "account_type": "creator"
+    },
+    "engagement": { "views": 45000, "likes": 8900, "shares": 1200, "comments": 567, "report_count": 23 },
+    "context": "Verified arts education account with 5-year history. Image is the classical painting 'Primavera' by Sandro Botticelli, displayed in major world museums. Non-sexual, artistic context.",
+    "ground_truth": {
+      "decision": "age_gate",
+      "policy_violated": "nudity_policy_9.2",
+      "severity": "low"
+    }
+  },
+  {
+    "post_id": "pe_011",
+    "content": "CONFIRMED by official audit: The election in [STATE] had 2.7 million fraudulent ballots. The results have been invalidated. Mainstream media is refusing to cover this. Here is the official audit report showing the fraud: [link to anonymous blog]. Share this before it gets taken down.",
+    "user": {
+      "account_age_days": 234,
+      "previous_violations": 0,
+      "follower_count": 8900,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 89000, "likes": 12000, "shares": 34000, "comments": 8900, "report_count": 1240 },
+    "context": "The linked 'audit report' is an anonymous blog post with no official source. No official audit with these findings exists. User has shared 47 previously fact-checked false election claims.",
+    "ground_truth": {
+      "decision": "restrict_reach",
+      "policy_violated": "misinformation_policy_4.1",
+      "severity": "medium"
+    }
+  },
+  {
+    "post_id": "pe_012",
+    "content": "Absolutely the worst customer experience I've ever had at @TechMart on 5th Ave. Waited 2+ hours for assistance, staff refused to honor their own published return policy on a defective item, and the manager was dismissive and rude when I escalated. Posting so others know before they shop there. #consumerrights #badservice",
+    "user": {
+      "account_age_days": 1460,
+      "previous_violations": 0,
+      "follower_count": 892,
+      "is_verified": false,
+      "account_type": "personal"
+    },
+    "engagement": { "views": 3400, "likes": 234, "shares": 89, "comments": 67, "report_count": 2 },
+    "context": null,
+    "ground_truth": {
+      "decision": "approve",
+      "policy_violated": null,
+      "severity": "none"
+    }
+  }
+]
