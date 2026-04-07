@@ -25,7 +25,7 @@ SEVERITY_CHOICES = ["none", "low", "medium", "high", "critical"]
 TASK_DESCRIPTIONS = {
     "spam_detection": "🟢 **Easy** — Review 15 posts and identify spam vs. legitimate content",
     "policy_enforcement": "🟡 **Medium** — Enforce policies on 12 contextually nuanced posts (hate speech, PII, misinformation)",
-    "coordinated_inauthentic_behavior": "🔴 **Hard** — Analyze 10 accounts and detect a coordinated disinformation network",
+    "coordinated_inauthentic_behavior": "🔴 **Hard** — Investigate 10 accounts over 10 steps and detect a coordinated disinformation network",
     "appeal_review": "🟡 **Medium** — Review 8 user appeals against moderation decisions",
 }
 
@@ -327,7 +327,7 @@ def build_demo():
 |------|-------|-------------|
 | `spam_detection` | 15 | approve, remove |
 | `policy_enforcement` | 12 | Full 6-action space + policy citation |
-| `coordinated_inauthentic_behavior` | 1 | flag_cib, clear, investigate_further |
+| `coordinated_inauthentic_behavior` | 10 | Investigate with tools, then submit: flag_cib, clear |
 | `appeal_review` | 8 | uphold, overturn, modify_restrict, modify_age_gate |
 
 **Reward Range:** 0.0 – 1.0 per step | **Partial credit** for adjacent decisions

@@ -91,7 +91,7 @@ def list_tasks():
             {
                 "name": "coordinated_inauthentic_behavior",
                 "difficulty": "hard",
-                "max_steps": 1,
+                "max_steps": 10,
                 "description": "Detect coordinated disinformation networks",
             },
             {
@@ -197,6 +197,6 @@ def _get_total_steps(task_name: str) -> int:
     return {
         "spam_detection": 15,
         "policy_enforcement": 12,
-        "coordinated_inauthentic_behavior": 1,
+        "coordinated_inauthentic_behavior": 10,
         "appeal_review": 8,
     }.get(task_name, 0)

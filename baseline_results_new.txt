@@ -1,0 +1,52 @@
+{"event": "INFO", "message": "TrustGuard-Env baseline inference starting", "model": "deepseek-ai/deepseek-v3.2", "api_base": "https://anmixapi.indevs.in/anmix/v1", "tasks": ["spam_detection", "policy_enforcement", "coordinated_inauthentic_behavior", "appeal_review"]}
+{"event": "START", "task": "spam_detection", "model": "deepseek-ai/deepseek-v3.2", "timestamp": "2026-04-07T14:44:26.445165+00:00"}
+{"event": "STEP", "step": 1, "item_id": "sp_001", "decision": "remove", "score": 0.825, "cumulative_score": 0.825, "info": {"feedback": "Correct action for sp_001 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 2, "item_id": "sp_002", "decision": "remove", "score": 0.825, "cumulative_score": 0.825, "info": {"feedback": "Correct action for sp_002 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 3, "item_id": "sp_003", "decision": "approve", "score": 0.9, "cumulative_score": 0.85, "info": {"feedback": "Correct action for sp_003 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 4, "item_id": "sp_004", "decision": "remove", "score": 0.825, "cumulative_score": 0.8438, "info": {"feedback": "Correct action for sp_004 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 5, "item_id": "sp_005", "decision": "approve", "score": 0.9, "cumulative_score": 0.855, "info": {"feedback": "Correct action for sp_005 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 6, "item_id": "sp_006", "decision": "remove", "score": 0.825, "cumulative_score": 0.85, "info": {"feedback": "Correct action for sp_006 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 7, "item_id": "sp_007", "decision": "approve", "score": 0.9, "cumulative_score": 0.8571, "info": {"feedback": "Correct action for sp_007 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 8, "item_id": "sp_008", "decision": "remove", "score": 0.825, "cumulative_score": 0.8531, "info": {"feedback": "Correct action for sp_008 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 9, "item_id": "sp_009", "decision": "approve", "score": 0.9, "cumulative_score": 0.8583, "info": {"feedback": "Correct action for sp_009 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 10, "item_id": "sp_010", "decision": "remove", "score": 0.825, "cumulative_score": 0.855, "info": {"feedback": "Correct action for sp_010 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 11, "item_id": "sp_011", "decision": "approve", "score": 0.9, "cumulative_score": 0.8591, "info": {"feedback": "Correct action for sp_011 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 12, "item_id": "sp_012", "decision": "remove", "score": 0.9, "cumulative_score": 0.8625, "info": {"feedback": "Correct action for sp_012 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 13, "item_id": "sp_013", "decision": "approve", "score": 0.9, "cumulative_score": 0.8654, "info": {"feedback": "Correct action for sp_013 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 14, "item_id": "sp_014", "decision": "remove", "score": 0.9, "cumulative_score": 0.8679, "info": {"feedback": "Correct action for sp_014 but policy/severity needs refinement."}}
+{"event": "STEP", "step": 15, "item_id": "sp_015", "decision": "approve", "score": 0.9, "cumulative_score": 0.87, "info": {"feedback": "Correct action for sp_015 but policy/severity needs refinement."}}
+{"event": "END", "task": "spam_detection", "total_score": 0.87, "steps": 15, "elapsed_seconds": 281.32, "timestamp": "2026-04-07T14:49:07.769050+00:00"}
+{"event": "START", "task": "policy_enforcement", "model": "deepseek-ai/deepseek-v3.2", "timestamp": "2026-04-07T14:49:07.769050+00:00"}
+{"event": "STEP", "step": 1, "item_id": "pe_001", "decision": "remove", "score": 0.825, "cumulative_score": 0.825, "info": {"feedback": "Partially correct for pe_001. Expected 'remove', got 'remove'."}}
+{"event": "STEP", "step": 2, "item_id": "pe_002", "decision": "approve", "score": 1.0, "cumulative_score": 0.9125, "info": {"feedback": "Excellent moderation decision for pe_002."}}
+{"event": "STEP", "step": 3, "item_id": "pe_003", "decision": "remove", "score": 0.55, "cumulative_score": 0.7917, "info": {"feedback": "Correct action for pe_003 but wrong policy cited. Expected: 'privacy_policy_5.1'."}}
+{"event": "STEP", "step": 4, "item_id": "pe_004", "decision": "remove", "score": 0.65, "cumulative_score": 0.7562, "info": {"feedback": "Correct action for pe_004 but wrong policy cited. Expected: 'health_misinformation_4.2'."}}
+{"event": "STEP", "step": 5, "item_id": "pe_005", "decision": "approve", "score": 1.0, "cumulative_score": 0.805, "info": {"feedback": "Excellent moderation decision for pe_005."}}
+{"event": "STEP", "step": 6, "item_id": "pe_006", "decision": "remove", "score": 0.55, "cumulative_score": 0.7625, "info": {"feedback": "Correct action for pe_006 but wrong policy cited. Expected: 'illegal_goods_policy_7.3'."}}
+{"event": "STEP", "step": 7, "item_id": "pe_007", "decision": "escalate", "score": 0.55, "cumulative_score": 0.7321, "info": {"feedback": "Correct action for pe_007 but wrong policy cited. Expected: 'self_harm_policy_8.1'."}}
+{"event": "STEP", "step": 8, "item_id": "pe_008", "decision": "remove", "score": 1.0, "cumulative_score": 0.7656, "info": {"feedback": "Excellent moderation decision for pe_008."}}
+{"event": "STEP", "step": 9, "item_id": "pe_009", "decision": "remove", "score": 0.65, "cumulative_score": 0.7528, "info": {"feedback": "Correct action for pe_009 but wrong policy cited. Expected: 'spam_policy_1.2'."}}
+{"event": "STEP", "step": 10, "item_id": "pe_010", "decision": "approve", "score": 0.28, "cumulative_score": 0.7055, "info": {"feedback": "Partially correct for pe_010. Expected 'age_gate', got 'approve'."}}
+{"event": "STEP", "step": 11, "item_id": "pe_011", "decision": "remove", "score": 0.28, "cumulative_score": 0.6668, "info": {"feedback": "Partially correct for pe_011. Expected 'restrict_reach', got 'remove'."}}
+{"event": "STEP", "step": 12, "item_id": "pe_012", "decision": "approve", "score": 1.0, "cumulative_score": 0.6946, "info": {"feedback": "Excellent moderation decision for pe_012."}}
+{"event": "END", "task": "policy_enforcement", "total_score": 0.6946, "steps": 12, "elapsed_seconds": 116.53, "timestamp": "2026-04-07T14:51:04.299032+00:00"}
+{"event": "START", "task": "coordinated_inauthentic_behavior", "model": "deepseek-ai/deepseek-v3.2", "timestamp": "2026-04-07T14:51:04.299032+00:00"}
+{"event": "STEP", "step": 1, "item_id": "investigate_acc_002", "decision": "investigate", "score": 0.01, "cumulative_score": 0.01, "info": {"feedback": "Successfully used view_posts on acc_002."}}
+{"event": "STEP", "step": 2, "item_id": "investigate_acc_003", "decision": "investigate", "score": 0.01, "cumulative_score": 0.01, "info": {"feedback": "Successfully used view_posts on acc_003."}}
+{"event": "STEP", "step": 3, "item_id": "investigate_acc_007", "decision": "investigate", "score": 0.01, "cumulative_score": 0.01, "info": {"feedback": "Successfully used view_posts on acc_007."}}
+{"event": "STEP", "step": 4, "item_id": "investigate_acc_009", "decision": "investigate", "score": 0.01, "cumulative_score": 0.01, "info": {"feedback": "Successfully used view_posts on acc_009."}}
+{"event": "STEP", "step": 5, "item_id": "investigate_acc_012", "decision": "investigate", "score": 0.01, "cumulative_score": 0.01, "info": {"feedback": "Successfully used view_posts on acc_012."}}
+{"event": "STEP", "step": 6, "item_id": "investigate_acc_015", "decision": "investigate", "score": 0.01, "cumulative_score": 0.01, "info": {"feedback": "Successfully used view_posts on acc_015."}}
+{"event": "STEP", "step": 7, "item_id": "cib_submit", "decision": "submit", "score": 0.8333, "cumulative_score": 0.1276, "info": {"feedback": "Good detection. Missed 0 CIB accounts or had 2 false positives."}}
+{"event": "END", "task": "coordinated_inauthentic_behavior", "total_score": 0.1276, "steps": 7, "elapsed_seconds": 506.44, "timestamp": "2026-04-07T14:59:30.736537+00:00"}
+{"event": "START", "task": "appeal_review", "model": "deepseek-ai/deepseek-v3.2", "timestamp": "2026-04-07T14:59:30.736537+00:00"}
+{"event": "STEP", "step": 1, "item_id": "ap_001", "decision": "overturn", "score": 1.0, "cumulative_score": 1.0, "info": {"feedback": "Correct appeal decision for ap_001: overturn."}}
+{"event": "STEP", "step": 2, "item_id": "ap_002", "decision": "uphold", "score": 1.0, "cumulative_score": 1.0, "info": {"feedback": "Correct appeal decision for ap_002: uphold."}}
+{"event": "STEP", "step": 3, "item_id": "ap_003", "decision": "overturn", "score": 0.4, "cumulative_score": 0.8, "info": {"feedback": "Adjacent decision for ap_003. Expected 'modify_age_gate', got 'overturn'. Content qualifies as artis"}}
+{"event": "STEP", "step": 4, "item_id": "ap_004", "decision": "overturn", "score": 1.0, "cumulative_score": 0.85, "info": {"feedback": "Correct appeal decision for ap_004: overturn."}}
+{"event": "STEP", "step": 5, "item_id": "ap_005", "decision": "uphold", "score": 1.0, "cumulative_score": 0.88, "info": {"feedback": "Correct appeal decision for ap_005: uphold."}}
+{"event": "STEP", "step": 6, "item_id": "ap_006", "decision": "modify_restrict", "score": 1.0, "cumulative_score": 0.9, "info": {"feedback": "Correct appeal decision for ap_006: modify_restrict."}}
+{"event": "STEP", "step": 7, "item_id": "ap_007", "decision": "uphold", "score": 1.0, "cumulative_score": 0.9143, "info": {"feedback": "Correct appeal decision for ap_007: uphold."}}
+{"event": "STEP", "step": 8, "item_id": "ap_008", "decision": "overturn", "score": 1.0, "cumulative_score": 0.925, "info": {"feedback": "Correct appeal decision for ap_008: overturn."}}
+{"event": "END", "task": "appeal_review", "total_score": 0.925, "steps": 8, "elapsed_seconds": 270.64, "timestamp": "2026-04-07T15:04:01.371673+00:00"}
+{"event": "SUMMARY", "scores": {"spam_detection": 0.87, "policy_enforcement": 0.6946, "coordinated_inauthentic_behavior": 0.1276, "appeal_review": 0.925}, "overall_score": 0.6543, "total_elapsed_seconds": 1174.93, "model": "deepseek-ai/deepseek-v3.2", "timestamp": "2026-04-07T15:04:01.371673+00:00"}

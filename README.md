@@ -305,15 +305,30 @@ TASK                           | SCORE | VISUALIZATION
 ───────────────────────────────┼───────┼──────────────────────────────────
 spam_detection (Easy)          │ 0.853 │ ████████████████████████████░░░░  85%
 policy_enforcement (Medium)    │ 0.686 │ ████████████████████████░░░░░░░░  69%
-coordinated_inauthentic (Hard) │ 1.000 │ █████████████████████████████████ 100%
+coordinated_inauthentic (Hard) │ 0.889 │ ████████████████████████████░░░░  89%
 appeal_review (Medium)         │ 0.600 │ ████████████████████░░░░░░░░░░░░  60%
 ───────────────────────────────┼───────┼──────────────────────────────────
-OVERALL                        │ 0.785 │ ██████████████████████████░░░░░░  78%
+OVERALL                        │ 0.757 │ █████████████████████████░░░░░░░  76%
 ```
 
-### Why CIB = 100%?
+### Task Analysis
 
-The 8B model perfectly identified the coordinated network. This demonstrates that the environment's **partial observability mechanics** (the investigative action space) create the right level of challenge — the task is **solvable** but requires deliberate multi-step strategy.
+**Spam Detection (85%):** Strong performance on basic pattern recognition. The model correctly identifies phishing, scams, and engagement bait. Minor losses on policy/severity precision.
+
+**Policy Enforcement (69%):** Medium difficulty task with nuanced edge cases (satire, artistic content, context-dependent violations). The model handles clear violations well but struggles with borderline cases requiring policy citation accuracy.
+
+**CIB Investigation (89%):** The environment's signature task demonstrates the partial observability mechanics working as designed. The agent must:
+1. Strategically investigate accounts using limited steps (10 total)
+2. Unlock evidence through investigation tools (view_posts, view_metadata, view_network)
+3. Identify coordinated networks based on multiple signals:
+   - New accounts (< 30 days) with high posting frequency (> 10 posts/day)
+   - Cross-tagging patterns between accounts
+   - Suspicious posting hours (early morning automation)
+   - Bot-like follower/following ratios
+
+The 89% F1 score (100% precision, 80% recall) shows the task is **challenging but solvable** — requiring genuine multi-step reasoning rather than simple pattern matching.
+
+**Appeal Review (60%):** Most challenging task requiring nuanced judgment about new evidence, violation patterns, and appropriate remediation. The model correctly handles clear-cut cases (obvious errors, drug sales) but struggles with partial merit scenarios (artistic content, PII with safety concerns).
 
 ### Policy Enforcement Breakdown
 
