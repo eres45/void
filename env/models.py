@@ -85,55 +85,70 @@ class AccountObservation(BaseModel):
     """Profile + behavioral data for a single account in CIB investigation."""
     account_id: str
     username: str
-    bio: str
     account_age_days: int
     follower_count: int
     following_count: int
-    posts: List[str] = Field(description="Recent post contents by this account")
-    hashtags_used: List[str] = Field(description="Top hashtags used across posts")
-    avg_posting_hour: float = Field(description="Average posting hour (0–23 scale)")
-    posts_per_day: float = Field(description="Average posts per day")
-    cross_tagged_accounts: List[str] = Field(description="Other accounts this account tags or mentions")
+    
+    # These fields are initially None and "unlocked" via investigate actions
+    bio: Optional[str] = Field(None, description="Account bio (requires investigation)")
+    posts: Optional[List[str]] = Field(None, description="Recent post contents (requires investigation)")
+    hashtags_used: Optional[List[str]] = Field(None, description="Top hashtags (requires investigation)")
+    avg_posting_hour: Optional[float] = Field(None, description="Average posting hour (requires investigation)")
+    posts_per_day: Optional[float] = Field(None, description="Average posts per day (requires investigation)")
+    cross_tagged_accounts: Optional[List[str]] = Field(None, description="Network connections (requires investigation)")
 
 
 class CIBObservation(BaseModel):
-    """Full investigation batch for coordinated_inauthentic_behavior task."""
+    """Investigation state for coordinated_inauthentic_behavior task."""
     task_name: str = "coordinated_inauthentic_behavior"
     step: int = 0
-    total_steps: int = 1
+    total_steps: int = 10
     accounts: List[AccountObservation]
     time_window_hours: int = Field(description="Duration of the behavior window being analyzed")
     narrative_topic: str = Field(description="The narrative or topic observed across posts")
-    instructions: str = Field(description="Task instructions for the agent")
+    instructions: str = Field(description="Task instructions including available investigative actions")
+    last_action_result: Optional[str] = Field(None, description="Result of the previous investigation action")
 
 
 class CIBAction(BaseModel):
-    """Agent's classification decisions across all accounts in the CIB investigation."""
-    account_decisions: Dict[str, Literal["flag_cib", "clear", "investigate_further"]] = Field(
-        description="Map of account_id → decision for every account in the investigation"
+    """Agent's investigation or final classification decisions."""
+    action_type: Literal["investigate", "submit"] = Field(
+        description="Whether to investigate an account or submit final decisions"
     )
-    network_description: Optional[str] = Field(
-        None,
-        description="Description of the CIB network identified (if any)"
+    
+    # Required for action_type="investigate"
+    target_account_id: Optional[str] = Field(None, description="The account ID to investigate")
+    investigation_tool: Optional[Literal["view_posts", "view_network", "view_metadata"]] = Field(
+        None, description="The tool to use for investigation"
     )
-    reasoning: str = Field(description="Overall reasoning across all accounts")
+    
+    # Required for action_type="submit"
+    account_decisions: Optional[Dict[str, Literal["flag_cib", "clear", "investigate_further"]]] = Field(
+        None, description="Final map of account_id → decision"
+    )
+    network_description: Optional[str] = Field(None, description="Description of the identified network")
+    
+    reasoning: str = Field(description="Reasoning for the current investigative step or final submission")
 
 
 class CIBReward(BaseModel):
-    """Reward for the single-step CIB task."""
-    step: int = 0
-    precision: float = Field(ge=0.0, le=1.0)
-    recall: float = Field(ge=0.0, le=1.0)
-    f1_score: float = Field(ge=0.0, le=1.0)
-    score: float = Field(ge=0.0, le=1.0)
-    correct_flags: int
-    false_positives: int
-    false_negatives: int
-    total_true_cib: int
-    total_flagged: int
+    """Reward for CIB investigative steps or final score."""
+    step: int
+    score: float = Field(ge=0.0, le=1.0, description="Step reward or final F1 score")
+    
+    # Only present in final 'submit' step
+    precision: Optional[float] = None
+    recall: Optional[float] = None
+    f1_score: Optional[float] = None
+    correct_flags: Optional[int] = None
+    false_positives: Optional[int] = None
+    false_negatives: Optional[int] = None
+    total_true_cib: Optional[int] = None
+    total_flagged: Optional[int] = None
+    
     feedback: str
     cumulative_score: float
-    done: bool = True
+    done: bool
 
 
 # ---------------------------------------------------------------------------

@@ -29,12 +29,13 @@ tasks:
 
   - name: coordinated_inauthentic_behavior
     difficulty: hard
-    max_steps: 1
+    max_steps: 10
     description: >
-      Agent investigates a network of 10 accounts and must identify which
-      accounts are participating in coordinated inauthentic behavior (CIB),
-      requiring graph-level reasoning across posting patterns, timing,
-      language, and cross-referencing signals.
+      Agent investigates a network of 10 accounts over multiple steps.
+      Must use investigative tools (view_posts, view_metadata, view_network) 
+      to unlock evidence before identifying which accounts are part of a 
+      coordinated inauthentic behavior (CIB) network. Requires stateful
+      reasoning and evidence gathering.
 
   - name: appeal_review
     difficulty: medium
@@ -49,6 +50,7 @@ action_space: structured_json
 observation_space: structured_json
 
 api:
+  tasks: "GET /tasks"
   reset: "POST /reset"
   step: "POST /step"
   state: "GET /state"

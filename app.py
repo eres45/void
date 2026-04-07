@@ -14,11 +14,13 @@ Endpoints:
 
 import gradio as gr
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Any
 
 from env.environment import TrustGuardEnv, VALID_TASKS
 from demo import build_demo
+import threading
 
 # ---------------------------------------------------------------------------
 # FastAPI App
@@ -42,6 +44,7 @@ app.add_middleware(
 
 # Global environment instance (stateful per-session)
 env = TrustGuardEnv()
+env_lock = threading.Lock()
 
 
 # ---------------------------------------------------------------------------
@@ -112,7 +115,8 @@ def reset(request: ResetRequest):
             status_code=400,
             detail=f"Invalid task '{request.task_name}'. Valid tasks: {VALID_TASKS}",
         )
-    obs = env.reset(request.task_name)
+    with env_lock:
+        obs = env.reset(request.task_name)
     return {
         "observation": obs,
         "task_name": request.task_name,
@@ -131,7 +135,8 @@ def step(request: StepRequest):
     if not request.action:
         raise HTTPException(status_code=400, detail="Action cannot be empty.")
     try:
-        obs, reward, done, info = env.step(request.action)
+        with env_lock:
+            obs, reward, done, info = env.step(request.action)
         return {
             "observation": obs,
             "reward": reward,
@@ -147,12 +152,19 @@ def step(request: StepRequest):
 @app.get("/state")
 def state():
     """Return the current environment state."""
-    return env.state()
+    with env_lock:
+        return env.state()
 
 
 @app.get("/")
 def root():
-    """Root endpoint — environment metadata."""
+    """Redirect root to the interactive Gradio demo."""
+    return RedirectResponse(url="/demo")
+
+
+@app.get("/api")
+def api_info():
+    """API metadata endpoint."""
     return {
         "name": "TrustGuard-Env",
         "description": "Real-world Trust & Safety OpenEnv environment",

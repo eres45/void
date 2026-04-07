@@ -119,49 +119,51 @@ def build_cib_prompt(obs: dict) -> str:
     for acc in obs["accounts"]:
         accounts_text += f"""
 ACCOUNT: {acc['account_id']} (@{acc['username']})
-Bio: {acc['bio']}
 Age: {acc['account_age_days']} days | Followers: {acc['follower_count']} | Following: {acc['following_count']}
-Posts/day: {acc['posts_per_day']} | Avg posting hour: {acc['avg_posting_hour']:.1f}
-Cross-tags: {', '.join(acc.get('cross_tagged_accounts', [])) or 'none'}
-Hashtags: {', '.join(acc.get('hashtags_used', []))}
-Recent posts:
-{chr(10).join(f'  - {p}' for p in acc['posts'][:3])}
+Unlocked Data: {', '.join([k for k, v in acc.items() if v is not None and k not in ['account_id', 'username', 'account_age_days', 'follower_count', 'following_count']]) or 'Basic metadata only'}
 """
+        if acc.get("bio"): accounts_text += f"Bio: {acc['bio']}\n"
+        if acc.get("posts"): accounts_text += f"Recent posts: {acc['posts'][:2]}\n"
+        if acc.get("hashtags_used"): accounts_text += f"Hashtags: {acc['hashtags_used']}\n"
+        if acc.get("posts_per_day"): accounts_text += f"Activity: {acc['posts_per_day']} posts/day | Avg hr: {acc['avg_posting_hour']}\n"
+        if acc.get("cross_tagged_accounts"): accounts_text += f"Cross-tags: {acc['cross_tagged_accounts']}\n"
 
-    return f"""You are a Trust & Safety investigator specializing in detecting coordinated inauthentic behavior (CIB).
+    return f"""You are a Trust & Safety investigator specializing in coordinated inauthentic behavior (CIB).
 
-TASK: coordinated_inauthentic_behavior  
+TASK: coordinated_inauthentic_behavior (Step {obs['step']}/{obs['total_steps']})
 INSTRUCTIONS: {obs.get('instructions', '')}
 
 TOPIC BEING ANALYZED: {obs['narrative_topic']}
-TIME WINDOW: {obs['time_window_hours']} hours
+LAST ACTION RESULT: {obs.get('last_action_result', 'None')}
 
-ACCOUNTS TO INVESTIGATE:
+ACCOUNTS IN BATCH:
 {accounts_text}
 
-POLICIES:
-{chr(10).join(obs.get('policy_sections', []))}
+STRATEGY:
+- If you don't have enough info on an account, use action_type: "investigate".
+- Available tools: "view_posts", "view_metadata", "view_network".
+- Once you have analyzed sufficient accounts to find the network, use action_type: "submit".
 
-Analyze all accounts. Identify patterns: new accounts with high posting frequency, 
-cross-tagging the same accounts, identical messaging, synchronized timing, 
-suspiciously low engagement ratios.
+Respond ONLY with a JSON object in one of these formats:
 
-Respond ONLY with a JSON object in this exact format:
+To Investigate:
 {{
+  "action_type": "investigate",
+  "target_account_id": "acc_001",
+  "investigation_tool": "view_posts",
+  "reasoning": "Need to see post content to check for messaging similarities."
+}}
+
+To Submit Final Decisions:
+{{
+  "action_type": "submit",
   "account_decisions": {{
-    "acc_001": "<flag_cib|clear|investigate_further>",
-    "acc_002": "<flag_cib|clear|investigate_further>",
-    "acc_003": "<flag_cib|clear|investigate_further>",
-    "acc_004": "<flag_cib|clear|investigate_further>",
-    "acc_006": "<flag_cib|clear|investigate_further>",
-    "acc_007": "<flag_cib|clear|investigate_further>",
-    "acc_009": "<flag_cib|clear|investigate_further>",
-    "acc_011": "<flag_cib|clear|investigate_further>",
-    "acc_012": "<flag_cib|clear|investigate_further>",
-    "acc_015": "<flag_cib|clear|investigate_further>"
+    "acc_001": "flag_cib",
+    "acc_002": "clear",
+    ...
   }},
-  "network_description": "<describe the CIB network you found, or null>",
-  "reasoning": "<overall analysis>"
+  "network_description": "<describe the CIB network>",
+  "reasoning": "Finalizing investigation after finding evidence of coordinated messaging."
 }}"""
 
 
@@ -262,7 +264,11 @@ def run_task(env: TrustGuardEnv, task_name: str) -> float:
         if not action:
             # Fallback to safe default if LLM fails
             if task_name == "coordinated_inauthentic_behavior":
-                action = {"account_decisions": {acc["account_id"]: "clear" for acc in obs["accounts"]}, "reasoning": "fallback"}
+                action = {
+                    "action_type": "submit",
+                    "account_decisions": {acc["account_id"]: "clear" for acc in obs["accounts"]},
+                    "reasoning": "fallback"
+                }
             elif task_name == "appeal_review":
                 action = {"appeal_id": obs.get("appeal_id", ""), "decision": "uphold", "reasoning": "fallback"}
             else:
@@ -274,9 +280,9 @@ def run_task(env: TrustGuardEnv, task_name: str) -> float:
         item_id = (
             reward.get("post_id")
             or reward.get("appeal_id")
-            or f"step_{step_num}"
+            or (f"investigate_{action.get('target_account_id')}" if action.get("action_type") == "investigate" else "cib_submit")
         )
-        decision = action.get("decision") or str(action.get("account_decisions", "batch"))
+        decision = action.get("decision") or action.get("action_type") or str(action.get("account_decisions", "batch"))
         step_score = reward.get("score", 0.0)
         cumulative = reward.get("cumulative_score", 0.0)
         scores.append(step_score)

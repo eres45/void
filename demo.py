@@ -118,17 +118,29 @@ def start_episode(task_name: str):
     return obs_text, status, "", gr.update(visible=True)
 
 
-def submit_action(task_name: str, decision: str, policy: str, severity: str, reasoning: str):
+def submit_action(task_name: str, action_type: str, target_id: str, tool: str, decision: str, policy: str, severity: str, reasoning: str):
     global _demo_env, _demo_obs, _demo_done
 
     if _demo_done:
         return format_observation(_demo_obs, task_name), "⚠️ Episode complete. Start a new episode.", "Episode already done."
 
     if task_name == "coordinated_inauthentic_behavior":
-        # For CIB, decision applies to all accounts (simplified demo)
-        accounts = _demo_obs.get("accounts", [])
-        account_decisions = {acc["account_id"]: decision for acc in accounts}
-        action = {"account_decisions": account_decisions, "reasoning": reasoning or "Demo action"}
+        if action_type == "investigate":
+            action = {
+                "action_type": "investigate",
+                "target_account_id": target_id,
+                "investigation_tool": tool,
+                "reasoning": reasoning or "Investigating account " + target_id
+            }
+        else:
+            # For CIB submission, apply the selected decision to all accounts for Demo simplicity
+            accounts = _demo_obs.get("accounts", [])
+            account_decisions = {acc["account_id"]: decision for acc in accounts}
+            action = {
+                "action_type": "submit",
+                "account_decisions": account_decisions, 
+                "reasoning": reasoning or "Final submission"
+            }
     elif task_name == "appeal_review":
         action = {
             "appeal_id": _demo_obs.get("appeal_id", ""),
@@ -209,7 +221,28 @@ def build_demo():
         with gr.Row(visible=False) as action_row:
             with gr.Column():
                 gr.Markdown("### 🎯 Take Action")
-                with gr.Row():
+                
+                # CIB Specific Controls
+                with gr.Column(visible=False) as cib_controls:
+                    with gr.Row():
+                        action_type_radio = gr.Radio(
+                            choices=["investigate", "submit"],
+                            label="Action Type",
+                            value="investigate"
+                        )
+                        target_acc_dropdown = gr.Dropdown(
+                            choices=[], 
+                            label="Target Account"
+                        )
+                    tool_radio = gr.Radio(
+                        choices=["view_posts", "view_network", "view_metadata"],
+                        label="Investigative Tool",
+                        value="view_posts",
+                        visible=True
+                    )
+
+                # Standard Moderation Controls
+                with gr.Row() as mod_controls:
                     decision_radio = gr.Radio(
                         choices=DECISION_CHOICES["spam_detection"],
                         label="Decision",
@@ -220,40 +253,69 @@ def build_demo():
                         label="Severity",
                         value="none",
                     )
+                
                 policy_input = gr.Textbox(
-                    label="Policy Violated (optional)",
-                    placeholder="e.g. spam_policy_1.2 — leave blank if approving",
+                    label="Policy ID (if applicable)",
+                    placeholder="e.g. spam_policy_1.2",
                 )
                 reasoning_input = gr.Textbox(
-                    label="Reasoning",
-                    placeholder="Explain your decision...",
+                    label="Reasoning / Investigative Log",
+                    placeholder="Explain your action...",
                     lines=2,
                 )
-                submit_btn = gr.Button("✅ Submit Decision", variant="primary")
+                submit_btn = gr.Button("✅ Perform Action", variant="primary")
                 reward_display = gr.Markdown("")
 
         def update_task_desc(task):
+            is_cib = (task == "coordinated_inauthentic_behavior")
             decisions = DECISION_CHOICES.get(task, DECISION_CHOICES["spam_detection"])
             return (
                 TASK_DESCRIPTIONS.get(task, ""),
                 gr.update(choices=decisions, value=decisions[0]),
+                gr.update(visible=is_cib),
+                gr.update(visible=not is_cib),
             )
 
         task_dropdown.change(
             update_task_desc,
             inputs=[task_dropdown],
-            outputs=[task_desc, decision_radio],
+            outputs=[task_desc, decision_radio, cib_controls, mod_controls],
         )
 
+        def toggle_cib_action(action_type):
+            return gr.update(visible=(action_type == "investigate"))
+
+        action_type_radio.change(
+            toggle_cib_action,
+            inputs=[action_type_radio],
+            outputs=[tool_radio]
+        )
+
+        def start_episode_with_targets(task_name: str):
+            obs_text, status, reward, action_visible = start_episode(task_name)
+            targets = []
+            if task_name == "coordinated_inauthentic_behavior" and _demo_obs:
+                targets = [a["account_id"] for a in _demo_obs.get("accounts", [])]
+            return obs_text, status, reward, action_visible, gr.update(choices=targets, value=targets[0] if targets else None)
+
         start_btn.click(
-            start_episode,
+            start_episode_with_targets,
             inputs=[task_dropdown],
-            outputs=[obs_display, status_bar, reward_display, action_row],
+            outputs=[obs_display, status_bar, reward_display, action_row, target_acc_dropdown],
         )
 
         submit_btn.click(
             submit_action,
-            inputs=[task_dropdown, decision_radio, policy_input, severity_radio, reasoning_input],
+            inputs=[
+                task_dropdown, 
+                action_type_radio, 
+                target_acc_dropdown, 
+                tool_radio, 
+                decision_radio, 
+                policy_input, 
+                severity_radio, 
+                reasoning_input
+            ],
             outputs=[obs_display, status_bar, reward_display],
         )
 
