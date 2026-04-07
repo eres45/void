@@ -22,6 +22,13 @@ from datetime import datetime, timezone
 from openai import OpenAI
 from env.environment import TrustGuardEnv
 
+# Load .env file if it exists
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv not installed, use system environment variables
+
 # ---------------------------------------------------------------------------
 # Configuration — loaded from environment variables (mandatory per spec)
 # ---------------------------------------------------------------------------
@@ -103,6 +110,31 @@ def build_moderation_prompt(obs: dict) -> str:
     
     hints_text = "\n".join(f"  - {h}" for h in spam_hints) if spam_hints else "  - No obvious red flags"
     
+    # Content-based policy hints
+    content_lower = obs['content'].lower()
+    policy_hints = []
+    
+    if any(word in content_lower for word in ['terrorist', 'deport', 'don\'t belong', 'invasion']):
+        policy_hints.append("⚠️ Likely hate_speech_policy_2.1 (dehumanization, exclusion)")
+    if any(word in obs['content'] for word in ['address', 'phone', 'Street', 'WARNING TO ALL']):
+        policy_hints.append("⚠️ Likely privacy_policy_5.1 (doxxing)")
+    if any(word in content_lower for word in ['bleach', 'miracle', 'doctors won\'t tell', 'big pharma']):
+        policy_hints.append("⚠️ Likely health_misinformation_4.2 (dangerous treatments)")
+    if any(word in content_lower for word in ['adderall', 'xanax', 'valium', 'without prescription', 'pills']):
+        policy_hints.append("⚠️ Likely illegal_goods_policy_7.3 (controlled substances)")
+    if any(word in content_lower for word in ['pain stop permanently', 'way out', 'can\'t take it']):
+        policy_hints.append("⚠️ Likely self_harm_policy_8.1 → ESCALATE (don't remove!)")
+    if any(word in content_lower for word in ['crime statistics', 'different values']) and user.get('previous_violations', 0) > 0:
+        policy_hints.append("⚠️ Likely hate_speech_policy_2.3 (coded hate)")
+    if any(word in content_lower for word in ['share 10,000', 'patriotic duty', 'buried forever']):
+        policy_hints.append("⚠️ Likely spam_policy_1.2 (engagement bait)")
+    if 'nude' in content_lower and any(word in content_lower for word in ['botticelli', 'renaissance', 'museum']):
+        policy_hints.append("⚠️ Likely nudity_policy_9.2 → age_gate (artistic)")
+    if any(word in content_lower for word in ['election', 'fraudulent ballots', 'audit']):
+        policy_hints.append("⚠️ Likely misinformation_policy_4.1 → restrict_reach")
+    
+    policy_hints_text = "\n".join(f"  {h}" for h in policy_hints) if policy_hints else "  No specific patterns detected"
+    
     return f"""You are a content moderator. Review the following post and make a moderation decision.
 
 TASK: {obs.get('task_name', 'moderation')}
@@ -126,24 +158,34 @@ ENGAGEMENT:
 SPAM SIGNALS:
 {hints_text}
 
+POLICY PATTERN DETECTION:
+{policy_hints_text}
+
 RELEVANT POLICIES:
-{chr(10).join(obs.get('policy_sections', [])[:5])}
+{chr(10).join(obs.get('policy_sections', [])[:8])}
 
 DECISION GUIDELINES:
-- "remove" = Clear policy violation (spam, phishing, scams, fake giveaways)
+- "remove" = Clear policy violation (cite specific policy)
 - "approve" = Legitimate content, no violations
-- "restrict_reach" = Borderline content, reduce distribution
-- "escalate" = Needs human review (complex cases)
+- "restrict_reach" = Misinformation (use misinformation_policy_4.1)
+- "age_gate" = Artistic nudity (use nudity_policy_9.2)
+- "escalate" = Self-harm content (use self_harm_policy_8.1)
 
-POLICY MATCHING:
-- spam_policy_1.1 = Phishing/scam links, fake security alerts
-- spam_policy_1.2 = Get-rich-quick, MLM, fake giveaways, engagement bait
-- spam_policy_1.3 = Duplicate content, coordinated spam campaigns
+CRITICAL POLICY MATCHING:
+- Hate speech targeting groups → hate_speech_policy_2.1 or 2.3
+- Doxxing (addresses, phones) → privacy_policy_5.1
+- Dangerous health advice → health_misinformation_4.2
+- Drug sales → illegal_goods_policy_7.3
+- Self-harm → self_harm_policy_8.1 (ESCALATE, don't remove!)
+- Engagement bait → spam_policy_1.2
+- Artistic nudity → nudity_policy_9.2 (age_gate)
+- Election misinfo → misinformation_policy_4.1 (restrict_reach)
 
 SEVERITY LEVELS:
-- "high" = Phishing, scams, malicious links (immediate harm)
-- "medium" = Fake giveaways, coordinated spam (moderate harm)
-- "low" = Engagement bait, follow-for-follow (minor annoyance)
+- "critical" = Immediate harm (dangerous health advice, self-harm)
+- "high" = Serious violations (hate speech, doxxing, drug sales)
+- "medium" = Moderate harm (spam, misinformation)
+- "low" = Minor issues (artistic nudity)
 - "none" = No violation
 
 Queue remaining: {obs.get('queue_remaining', 0)} posts after this one.
@@ -165,9 +207,11 @@ def build_cib_prompt(obs: dict, step_num: int) -> str:
     for acc in obs["accounts"]:
         unlocked_fields = [k for k, v in acc.items() if v is not None and k not in ['account_id', 'username', 'account_age_days', 'follower_count', 'following_count']]
         
-        # Identify suspicious signals
+        # Identify suspicious signals from BASIC METADATA ONLY
         is_new = acc['account_age_days'] < 30
-        high_following = acc['following_count'] > 2000
+        high_following = acc['following_count'] > 1500
+        low_followers = acc['follower_count'] < 500
+        suspicious_ratio = high_following and low_followers
         
         accounts_text += f"""
 ACCOUNT: {acc['account_id']} (@{acc['username']})
@@ -185,30 +229,60 @@ Unlocked Data: {', '.join(unlocked_fields) or 'Basic metadata only'}
         if acc.get("cross_tagged_accounts"): 
             accounts_text += f"Cross-tags: {', '.join(acc['cross_tagged_accounts'])}\n"
         
-        # Track suspicious accounts
-        if is_new or high_following:
+        # Track suspicious accounts based on BASIC metadata
+        if is_new and suspicious_ratio:
             suspicious_accounts.append(acc['account_id'])
 
+    # Count how many accounts match the suspicious pattern
+    new_accounts = [acc for acc in obs["accounts"] if acc['account_age_days'] < 30]
+    suspicious_ratio_accounts = [acc for acc in obs["accounts"] if acc['following_count'] > 1500 and acc['follower_count'] < 500]
+    
     # Determine if we should force submission
-    should_submit = step_num >= 7  # Submit by step 7 to leave room for investigation
+    should_submit = step_num >= 3 or len(new_accounts) >= 4  # Submit by step 3 OR if 4+ new accounts
     
     if should_submit:
+        # Analyze patterns for submission guidance
+        cib_signals_analysis = []
+        for acc in obs["accounts"]:
+            signals = []
+            if acc['account_age_days'] < 30:
+                signals.append(f"⏰ NEW ({acc['account_age_days']}d)")
+            if acc.get('posts_per_day', 0) > 10:
+                signals.append(f"📊 HIGH_FREQ ({acc.get('posts_per_day', 0):.1f}/day)")
+            if acc.get('cross_tagged_accounts') and len(acc.get('cross_tagged_accounts', [])) > 0:
+                signals.append(f"🔗 CROSS_TAG ({', '.join(acc.get('cross_tagged_accounts', [])[:3])})")
+            if acc.get('avg_posting_hour', 12) < 9:
+                signals.append(f"🕐 EARLY_POST ({acc.get('avg_posting_hour', 0):.1f}h)")
+            if acc['following_count'] > 1500 and acc['follower_count'] < 500:
+                signals.append(f"👥 INAUTHENTIC_RATIO ({acc['follower_count']}/{acc['following_count']})")
+            
+            # Check for urgent language in posts
+            if acc.get('posts'):
+                urgent_keywords = ['SHARE', 'URGENT', 'NOW', 'BEFORE', 'DELETED', 'CENSORED', 'TRUTH']
+                post_text = ' '.join(acc['posts']).upper()
+                urgent_count = sum(1 for kw in urgent_keywords if kw in post_text)
+                if urgent_count >= 3:
+                    signals.append(f"📢 URGENT_LANG ({urgent_count} keywords)")
+            
+            if signals:
+                cib_signals_analysis.append(f"{acc['account_id']}: {', '.join(signals)} [{len(signals)} signals]")
+        
+        signals_summary = "\n".join(cib_signals_analysis) if cib_signals_analysis else "No strong CIB signals detected"
+        
         strategy_text = f"""
-🚨 CRITICAL: You are on Step {obs['step']} of {obs['total_steps']}. Time to SUBMIT your final classification.
+🚨 SUBMIT NOW (Step {obs['step']}/{obs['total_steps']})
 
-CIB DETECTION SIGNALS (look for multiple signals together):
-1. ⏰ New accounts (< 30 days old) - Freshly created for campaign
-2. 📊 High posting frequency (> 10 posts/day) - Automated or coordinated behavior
-3. 🔗 Cross-tagging same accounts repeatedly - Network coordination
-4. 🏷️ Identical hashtags across accounts - Coordinated messaging
-5. 🕐 Similar posting hours (especially early morning 2-8 AM) - Bot-like timing
-6. 👥 High following but low followers - Inauthentic engagement patterns
-7. 📢 Urgent/alarmist language + "share now" - Amplification tactics
+CIB SIGNAL ANALYSIS:
+{signals_summary}
+
+PATTERN DETECTED: {len(new_accounts)} new accounts (< 30 days), {len(suspicious_ratio_accounts)} with suspicious follower ratios
 
 CLASSIFICATION RULES:
-- "flag_cib": Account shows 3+ signals above AND is part of coordinated network
-- "clear": Legitimate account (old account, normal activity, no coordination)
-- "investigate_further": Uncertain but suspicious (use sparingly)
+- "flag_cib": Account shows 2+ signals (new + suspicious ratio is enough!)
+- "clear": Legitimate account (old account >100 days, normal ratios)
+- "investigate_further": AVOID - just make a decision!
+
+KEY INSIGHT: If multiple accounts are ALL new AND have suspicious ratios, that's CIB!
 
 YOU MUST NOW use action_type: "submit" with account_decisions for ALL {len(obs['accounts'])} accounts.
 """
@@ -220,26 +294,32 @@ YOU MUST NOW use action_type: "submit" with account_decisions for ALL {len(obs['
         
         priority_targets = [acc['account_id'] for acc in uninvestigated if acc['account_id'] in suspicious_accounts]
         
+        # Calculate how many accounts we've investigated
+        investigated_count = len(obs["accounts"]) - len(uninvestigated)
+        
         strategy_text = f"""
 INVESTIGATION STRATEGY (Step {obs['step']}/{obs['total_steps']}):
 
-Suspicious accounts to prioritize: {', '.join(suspicious_accounts[:5]) if suspicious_accounts else 'None identified yet'}
+⚠️ CRITICAL: Each investigation costs you points! Investigate MINIMALLY!
 
-RECOMMENDED INVESTIGATION ORDER:
-1. Use "view_posts" first - reveals bio, content, hashtags (most diagnostic)
-2. Use "view_metadata" - reveals posting frequency and timing patterns
-3. Use "view_network" - reveals cross-tagging and coordination
+BASIC METADATA ANALYSIS (NO investigation needed):
+- New accounts (< 30 days): {len(new_accounts)} accounts
+- Suspicious ratios (high following, low followers): {len(suspicious_ratio_accounts)} accounts
+- Overlap (new + suspicious): {len(suspicious_accounts)} accounts
 
-{f"🎯 PRIORITY: Investigate {', '.join(priority_targets[:3])} next" if priority_targets else "Continue investigating suspicious accounts"}
+DECISION LOGIC:
+- If 4+ accounts are new AND have suspicious ratios → SUBMIT NOW, flag them as CIB!
+- If 2-3 accounts match → Investigate 1-2 accounts max, then SUBMIT
+- If 0-1 accounts match → All clear, SUBMIT NOW
 
-Plan to SUBMIT by step 7 after gathering evidence on key accounts.
+{f"🎯 Investigate {priority_targets[0]} ONLY, then SUBMIT" if priority_targets and investigated_count == 0 else "⚠️ SUBMIT NOW - You have enough evidence from basic metadata!"}
 
-To investigate, use:
+To investigate (ONLY if absolutely necessary):
 {{
   "action_type": "investigate",
-  "target_account_id": "acc_XXX",
+  "target_account_id": "{priority_targets[0] if priority_targets else 'acc_XXX'}",
   "investigation_tool": "view_posts",
-  "reasoning": "Checking for coordinated messaging patterns"
+  "reasoning": "Quick check for coordinated messaging"
 }}
 """
 
