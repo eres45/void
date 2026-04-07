@@ -188,9 +188,14 @@ app = gr.mount_gradio_app(app, gradio_demo, path="/demo")
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
-if __name__ == "__main__":
+def main():
+    """Main entry point for the server."""
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=7860)
+
+
+if __name__ == "__main__":
+    main()
 
 
 def _get_total_steps(task_name: str) -> int:
