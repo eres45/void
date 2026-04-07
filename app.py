@@ -105,23 +105,25 @@ def list_tasks():
 
 
 @app.post("/reset")
-def reset(request: ResetRequest):
+def reset(request: ResetRequest = None):
     """
     Reset the environment and start a new episode.
-    Body: {"task_name": "spam_detection"}
+    Body: {"task_name": "spam_detection"} (Optional)
     """
-    if request.task_name not in VALID_TASKS:
+    task_name = request.task_name if request else "spam_detection"
+
+    if task_name not in VALID_TASKS:
         raise HTTPException(
             status_code=400,
-            detail=f"Invalid task '{request.task_name}'. Valid tasks: {VALID_TASKS}",
+            detail=f"Invalid task '{task_name}'. Valid tasks: {VALID_TASKS}",
         )
     with env_lock:
-        obs = env.reset(request.task_name)
+        obs = env.reset(task_name)
     return {
         "observation": obs,
-        "task_name": request.task_name,
-        "total_steps": _get_total_steps(request.task_name),
-        "message": f"Episode started for task: {request.task_name}",
+        "task_name": task_name,
+        "total_steps": _get_total_steps(task_name),
+        "message": f"Episode started for task: {task_name}",
     }
 
 
