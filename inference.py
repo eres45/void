@@ -25,9 +25,9 @@ from env.environment import TrustGuardEnv
 # ---------------------------------------------------------------------------
 # Configuration — loaded from environment variables (mandatory per spec)
 # ---------------------------------------------------------------------------
-API_BASE_URL = os.environ.get("API_BASE_URL", "https://api.openai.com/v1")
-MODEL_NAME = os.environ.get("MODEL_NAME", "gpt-4o-mini")
-HF_TOKEN = os.environ.get("HF_TOKEN", os.environ.get("OPENAI_API_KEY", ""))
+API_BASE_URL = os.getenv("API_BASE_URL", "https://api.openai.com/v1")
+MODEL_NAME = os.getenv("MODEL_NAME", "gpt-4o-mini")
+HF_TOKEN = os.getenv("HF_TOKEN")
 
 if not HF_TOKEN:
     print("[ERROR] HF_TOKEN or OPENAI_API_KEY environment variable not set.", file=sys.stderr)
