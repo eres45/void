@@ -49,6 +49,8 @@ client = OpenAI(api_key=HF_TOKEN, base_url=API_BASE_URL)
 # ---------------------------------------------------------------------------
 
 def log_start(task: str, model: str):
+    # Print both formats for compatibility
+    print(f"[START] task={task} model={model}", flush=True)
     print(json.dumps({
         "event": "START",
         "task": task,
@@ -58,6 +60,8 @@ def log_start(task: str, model: str):
 
 
 def log_step(step: int, item_id: str, decision: str, score: float, cumulative: float, info: dict = None):
+    # Print both formats for compatibility
+    print(f"[STEP] step={step} item_id={item_id} decision={decision} score={round(score, 4)} cumulative_score={round(cumulative, 4)}", flush=True)
     record = {
         "event": "STEP",
         "step": step,
@@ -72,6 +76,8 @@ def log_step(step: int, item_id: str, decision: str, score: float, cumulative: f
 
 
 def log_end(task: str, total_score: float, steps: int, elapsed_seconds: float):
+    # Print both formats for compatibility
+    print(f"[END] task={task} score={round(total_score, 4)} steps={steps} elapsed_seconds={round(elapsed_seconds, 2)}", flush=True)
     print(json.dumps({
         "event": "END",
         "task": task,
